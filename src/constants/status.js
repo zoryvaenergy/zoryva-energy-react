@@ -1,0 +1,6 @@
+export const USER_STATUS = {
+  PRE_LAUNCH: "PRE_LAUNCH",
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+  BLOCKED: "BLOCKED",
+};
