@@ -214,3 +214,91 @@
     cursor:pointer;
 
 }
+/* ==========================================
+        MOBILE RESPONSIVE HEADER
+========================================== */
+
+@media (max-width: 768px){
+
+.header{
+    height:70px;
+}
+
+.header-container{
+    height:70px;
+}
+
+.logo-image{
+    height:42px;
+}
+
+.menu-icon{
+    display:block;
+    font-size:32px;
+    z-index:1001;
+}
+
+/* Mobile Menu */
+
+.nav{
+
+    position:fixed;
+
+    top:70px;
+
+    right:-100%;
+
+    width:280px;
+
+    height:calc(100vh - 70px);
+
+    background:#0F4C81;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:22px;
+
+    padding:30px;
+
+    transition:.35s ease;
+
+    box-shadow:-10px 0 25px rgba(0,0,0,.2);
+
+}
+
+/* Open Menu */
+
+.nav.active{
+
+    right:0;
+
+}
+
+/* Menu Links */
+
+.nav a{
+
+    width:100%;
+
+    font-size:18px;
+
+    padding:8px 0;
+
+}
+
+/* Buttons */
+
+.login-btn,
+.register-btn-nav{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+}
