@@ -1,67 +1,207 @@
+/* ==========================================
+   ABOUT SECTION
+========================================== */
+
 .about{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:40px;
-    padding:70px 8%;
+
+    padding:100px 0;
+
     background:#ffffff;
-    flex-wrap:wrap;
+
 }
 
-.about-image{
-    flex:1.2;
-    min-width:320px;
+.about-container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+    padding:0 20px;
+
 }
+
+/* ==========================
+        IMAGE
+========================== */
 
 .about-image img{
+
     width:100%;
-    max-height:450px;
-    object-fit:cover;
+
     border-radius:20px;
-    box-shadow:0 20px 50px rgba(0,0,0,.18);
-}
-.about-image img{
-    transition:0.4s ease;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.15);
+
+    transition:.4s;
+
 }
 
 .about-image img:hover{
+
     transform:scale(1.03);
+
 }
-.about-content{
-    flex:1;
-    min-width:320px;
+
+/* ==========================
+      CONTENT
+========================== */
+
+.section-tag{
+
+    display:inline-block;
+
+    background:#EAF4FF;
+
+    color:#0F4C81;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
 }
 
 .about-content h2{
-    font-size:46px;
+
+    font-size:42px;
+
     color:#0F4C81;
+
+    line-height:1.2;
+
     margin-bottom:25px;
-}
-.about-content h2::after{
-    content:"";
-    display:block;
-    width:120px;
-    height:5px;
-    background:#FDB813;
-    margin-top:15px;
-    border-radius:10px;
+
+    font-weight:800;
+
 }
 
 .about-content p{
-    font-size:20px;
+
+    font-size:18px;
+
+    color:#555;
+
     line-height:1.8;
-    color:#444;
+
     margin-bottom:20px;
+
 }
 
+/* ==========================
+      LIST
+========================== */
+
 .about-content ul{
+
     list-style:none;
+
     padding:0;
-    margin-top:30px;
+
+    margin:30px 0;
+
 }
 
 .about-content li{
-    font-size:20px;
-    margin-bottom:15px;
+
+    margin-bottom:16px;
+
+    font-size:18px;
+
     color:#222;
+
+    font-weight:600;
+
+}
+
+/* ==========================
+      BUTTON
+========================== */
+
+.about-btn{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:15px 32px;
+
+    background:#FDB813;
+
+    color:#000;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+.about-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 35px rgba(253,184,19,.45);
+
+}
+
+/* ==========================
+      MOBILE
+========================== */
+
+@media(max-width:768px){
+
+.about{
+
+    padding:70px 0;
+
+}
+
+.about-container{
+
+    grid-template-columns:1fr;
+
+    gap:40px;
+
+}
+
+.about-content{
+
+    text-align:center;
+
+}
+
+.about-content h2{
+
+    font-size:32px;
+
+}
+
+.about-content p{
+
+    font-size:17px;
+
+}
+
+.about-content li{
+
+    font-size:17px;
+
+}
+
 }

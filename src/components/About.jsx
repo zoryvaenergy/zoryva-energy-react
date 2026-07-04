@@ -1,40 +1,83 @@
 import aboutImage from "../images/about.jpg";
 
 function About() {
+
   return (
-    <section className="about" id="about">
 
-      <div className="about-image">
-        <img src={aboutImage} alt="About Zoryva Energy" />
-      </div>
+<section className="about" id="about">
 
-      <div className="about-content">
+<div className="container about-container">
 
-        <h2>About ZORYVA ENERGY</h2>
+<div className="about-image">
 
-        <p>
-          ZORYVA ENERGY is committed to making clean and affordable solar
-          energy available to every home, business and farmer across India.
-        </p>
+<img
 
-        <p>
-          Our mission is to empower people with innovative solar products,
-          smart energy solutions and business opportunities while building
-          a greener and sustainable future.
-        </p>
+src={aboutImage}
 
-        <ul>
-          <li>✔ Premium Solar Products</li>
-          <li>✔ Affordable Pricing</li>
-          <li>✔ Dealer & Distributor Network</li>
-          <li>✔ PAN India Support</li>
-          <li>✔ Smart Renewable Energy Solutions</li>
-        </ul>
+alt="About ZORYVA ENERGY"
 
-      </div>
+/>
 
-    </section>
-  );
+</div>
+
+<div className="about-content">
+
+<span className="section-tag">
+
+ABOUT ZORYVA ENERGY
+
+</span>
+
+<h2>
+
+Building India's
+
+Green Energy Future
+
+</h2>
+
+<p>
+
+ZORYVA ENERGY is committed to making clean,
+affordable and smart solar energy available
+to every home, business and farmer.
+
+</p>
+
+<p>
+
+We provide innovative solar products,
+renewable energy solutions and profitable
+business opportunities across India.
+
+</p>
+
+<ul>
+
+<li>✔ Premium Solar Products</li>
+
+<li>✔ Affordable Pricing</li>
+
+<li>✔ PAN India Network</li>
+
+<li>✔ Smart Renewable Solutions</li>
+
+</ul>
+
+<a href="#products" className="about-btn">
+
+Explore Products →
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+);
+
 }
 
 export default About;

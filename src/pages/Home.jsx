@@ -4,6 +4,7 @@ import About from "../components/About";
 import Products from "../components/Products";
 import Opportunity from "../components/Opportunity";
 import WhyChoose from "../components/WhyChoose";
+import OurServices from "../components/OurServices";
 import Stats from "../components/Stats";
 import Testimonials from "../components/Testimonials";
 import Contact from "../components/Contact";
@@ -18,6 +19,7 @@ function Home() {
       <Products />
       <Opportunity />
       <WhyChoose />
+      <OurServices />
       <Stats />
       <Testimonials />
       <Contact />

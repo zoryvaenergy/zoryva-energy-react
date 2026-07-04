@@ -1,14 +1,21 @@
-import Dashboard from "./pages/Dashboard";
 import "./App.css";
+
+import "./styles/globals.css";
+import "./styles/variables.css";
 import "./styles/header.css";
 import "./styles/hero.css";
 import "./styles/about.css";
+import "./styles/products.css";
+import "./styles/opportunity.css";
+import "./styles/footer.css";
+import "./styles/responsive.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
 import FirebaseTest from "./components/FirebaseTest";
 
 function App() {
