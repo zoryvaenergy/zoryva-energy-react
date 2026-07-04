@@ -1,3 +1,4 @@
+import Dashboard from "./pages/Dashboard";
 import "./App.css";
 import "./styles/header.css";
 import "./styles/hero.css";
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/test" element={<FirebaseTest />} />
       </Routes>
     </BrowserRouter>
