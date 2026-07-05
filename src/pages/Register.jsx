@@ -164,6 +164,43 @@ Please login using your User ID and Password.`
             marginBottom: "20px",
           }}
         />
+        <div style={{ marginBottom: "20px" }}>
+
+  <label
+    style={{
+      display: "block",
+      marginBottom: "10px",
+      fontWeight: "bold",
+    }}
+  >
+    Select Position
+  </label>
+
+  <label style={{ marginRight: "20px" }}>
+    <input
+      type="radio"
+      name="side"
+      value="left"
+      checked={formData.side === "left"}
+      onChange={handleChange}
+      disabled={!!referralSide}
+    />
+    Left
+  </label>
+
+  <label>
+    <input
+      type="radio"
+      name="side"
+      value="right"
+      checked={formData.side === "right"}
+      onChange={handleChange}
+      disabled={!!referralSide}
+    />
+    Right
+  </label>
+
+</div>
 
         <button
           type="submit"

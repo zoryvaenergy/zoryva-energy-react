@@ -12,6 +12,20 @@ export function validateForm(formData) {
     };
   }
 
+  if (!formData.sponsorId.trim()) {
+    return {
+      success: false,
+      message: "Please enter Sponsor ID."
+    };
+  }
+
+  if (!formData.side.trim()) {
+    return {
+      success: false,
+      message: "Please select Left or Right Position."
+    };
+  }
+
   if (!/^\d{10}$/.test(formData.mobile.trim())) {
     return {
       success: false,
