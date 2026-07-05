@@ -46,17 +46,18 @@ function Register() {
       return;
     }
 
-    alert(
-      `${result.message}
-
-User ID : ${result.userId}
-
-Please login using your User ID and Password.`
-    );
-
     console.log("Generated User ID :", result.userId);
 
-    navigate("/login");
+navigate("/registration-success", {
+  state: {
+    name: formData.name,
+    userId: result.userId,
+    sponsorId: formData.sponsorId || "Company",
+    side: formData.side
+      ? formData.side.toUpperCase()
+      : "AUTO",
+  },
+});
 
     setFormData({
       name: "",

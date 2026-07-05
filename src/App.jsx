@@ -17,6 +17,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import FirebaseTest from "./components/FirebaseTest";
+import RegistrationSuccess from "./pages/RegistrationSuccess";
 
 function App() {
   return (
@@ -26,7 +27,12 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+  path="/registration-success"
+  element={<RegistrationSuccess />}
+/>
         <Route path="/test" element={<FirebaseTest />} />
+
       </Routes>
     </BrowserRouter>
   );
