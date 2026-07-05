@@ -135,14 +135,14 @@ const copyUserId = () => {
                 <div className="button-group">
 
                     <button
-                        className="login-btn"
+                        className="success-login-btn"
                         onClick={() => navigate("/login")}
                     >
                         Login Now
                     </button>
 
                     <button
-                        className="home-btn"
+                        className="success-home-btn"
                         onClick={() => navigate("/")}
                     >
                         Home

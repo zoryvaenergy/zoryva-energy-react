@@ -128,7 +128,7 @@
 
 }
 
-.login-btn{
+.success-login-btn{
 
     flex:1;
 
@@ -154,7 +154,7 @@
 
 }
 
-.login-btn:hover{
+.success-login-btn:hover{
 
     transform:translateY(-3px);
 
@@ -162,7 +162,7 @@
 
 }
 
-.home-btn{
+.success-home-btn{
 
     flex:1;
 
