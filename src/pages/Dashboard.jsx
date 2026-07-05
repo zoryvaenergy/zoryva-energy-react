@@ -1,16 +1,37 @@
 import "./Dashboard.css";
 import { useEffect, useMemo, useState } from "react";
+import { ref, get } from "firebase/database";
+import { db } from "../firebase/firebase";
 
 function Dashboard() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const savedUser = localStorage.getItem("zoryvaUser");
-
-    if (savedUser) {
-      setUser(JSON.parse(savedUser));
-    }
+    loadUser();
   }, []);
+
+  async function loadUser() {
+    try {
+      const savedUser = JSON.parse(
+        localStorage.getItem("zoryvaUser")
+      );
+
+      if (!savedUser?.profile?.userId) return;
+
+      const userRef = ref(
+        db,
+        `users/${savedUser.profile.userId}`
+      );
+
+      const snapshot = await get(userRef);
+
+      if (snapshot.exists()) {
+        setUser(snapshot.val());
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   // Referral Links
   const referralLinks = useMemo(() => {
@@ -39,16 +60,17 @@ function Dashboard() {
       alert("Unable to copy referral link.");
     }
   };
-  const shareOnWhatsApp = (link) => {
-  const message =
-    `🌞 Join ZORYVA ENERGY\n\n` +
-    `Register using my referral link:\n\n${link}`;
 
-  window.open(
-    `https://wa.me/?text=${encodeURIComponent(message)}`,
-    "_blank"
-  );
-};
+  const shareOnWhatsApp = (link) => {
+    const message =
+      `🌞 Join ZORYVA ENERGY\n\n` +
+      `Register using my referral link:\n\n${link}`;
+
+    window.open(
+      `https://wa.me/?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
+  };
 
   return (
     <div className="dashboard">
@@ -58,6 +80,7 @@ function Dashboard() {
       </div>
 
       <div className="dashboard-grid">
+
         <div className="card">
           <h3>User ID</h3>
           <p>{user?.profile?.userId || "Loading..."}</p>
@@ -70,40 +93,60 @@ function Dashboard() {
 
         <div className="card">
           <h3>Status</h3>
-          <p className="active">{user?.profile?.status || "-"}</p>
+          <p className="active">
+            {user?.profile?.status || "-"}
+          </p>
         </div>
 
         <div className="card">
           <h3>Wallet Balance</h3>
-          <p>₹0</p>
+          <p>₹{user?.wallet?.balance ?? 0}</p>
         </div>
 
         <div className="card">
           <h3>Direct Team</h3>
-          <p>0</p>
+          <p>{user?.team?.directTeam ?? 0}</p>
         </div>
 
         <div className="card">
           <h3>Total Network</h3>
-          <p>0</p>
+          <p>{user?.team?.totalTeam ?? 0}</p>
+        </div>
+
+        <div className="card">
+          <h3>Left Team</h3>
+          <p>{user?.binary?.leftCount ?? 0}</p>
+        </div>
+
+        <div className="card">
+          <h3>Right Team</h3>
+          <p>{user?.binary?.rightCount ?? 0}</p>
         </div>
 
         <div className="card">
           <h3>Total Income</h3>
-          <p>₹0</p>
+          <p>₹{user?.wallet?.totalIncome ?? 0}</p>
+        </div>
+
+        <div className="card">
+          <h3>Total Pairs</h3>
+          <p>{user?.binary?.totalPairs ?? 0}</p>
         </div>
 
         <div className="card">
           <h3>Rewards</h3>
-          <p>0</p>
+          <p>{user?.rewards?.totalRewards ?? 0}</p>
         </div>
+
       </div>
 
       {referralLinks && (
         <div className="referral-section">
+
           <h2>Binary Referral Links</h2>
 
           <div className="referral-box">
+
             <h3>Left Referral Link</h3>
 
             <input
@@ -119,23 +162,31 @@ function Dashboard() {
             />
 
             <div
-  style={{
-    display: "flex",
-    gap: "10px",
-    marginTop: "10px",
-  }}
->
-  <button onClick={() => copyLink(referralLinks.left)}>
-    Copy
-  </button>
+              style={{
+                display: "flex",
+                gap: "10px",
+                marginTop: "10px",
+              }}
+            >
+              <button
+                onClick={() => copyLink(referralLinks.left)}
+              >
+                Copy
+              </button>
 
-  <button onClick={() => shareOnWhatsApp(referralLinks.left)}>
-    WhatsApp
-  </button>
-</div>
+              <button
+                onClick={() =>
+                  shareOnWhatsApp(referralLinks.left)
+                }
+              >
+                WhatsApp
+              </button>
+            </div>
+
           </div>
 
           <div className="referral-box">
+
             <h3>Right Referral Link</h3>
 
             <input
@@ -151,23 +202,32 @@ function Dashboard() {
             />
 
             <div
-  style={{
-    display: "flex",
-    gap: "10px",
-    marginTop: "10px",
-  }}
->
-  <button onClick={() => copyLink(referralLinks.right)}>
-    Copy
-  </button>
+              style={{
+                display: "flex",
+                gap: "10px",
+                marginTop: "10px",
+              }}
+            >
+              <button
+                onClick={() => copyLink(referralLinks.right)}
+              >
+                Copy
+              </button>
 
-  <button onClick={() => shareOnWhatsApp(referralLinks.right)}>
-    WhatsApp
-  </button>
-</div>
+              <button
+                onClick={() =>
+                  shareOnWhatsApp(referralLinks.right)
+                }
+              >
+                WhatsApp
+              </button>
+            </div>
+
           </div>
+
         </div>
       )}
+
     </div>
   );
 }

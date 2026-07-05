@@ -6,8 +6,9 @@ function Register() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
-const referralSponsor = searchParams.get("ref");
-const referralSide = searchParams.get("side");
+  const referralSponsor = searchParams.get("ref");
+  const referralSide = searchParams.get("side");
+
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
@@ -19,12 +20,12 @@ const referralSide = searchParams.get("side");
   });
 
   useEffect(() => {
-  setFormData((prev) => ({
-    ...prev,
-    sponsorId: referralSponsor || "",
-    side: referralSide || "",
-  }));
-}, [referralSponsor, referralSide]);
+    setFormData((prev) => ({
+      ...prev,
+      sponsorId: referralSponsor || "",
+      side: referralSide || "",
+    }));
+  }, [referralSponsor, referralSide]);
 
   const handleChange = (e) => {
     setFormData({
@@ -45,12 +46,18 @@ const referralSide = searchParams.get("side");
       return;
     }
 
-    alert(result.message);
+    alert(
+      `${result.message}
+
+User ID : ${result.userId}
+
+Please login using your User ID and Password.`
+    );
 
     console.log("Generated User ID :", result.userId);
-    navigate("/dashboard");
 
-    // Form Reset
+    navigate("/login");
+
     setFormData({
       name: "",
       mobile: "",
@@ -58,6 +65,7 @@ const referralSide = searchParams.get("side");
       password: "",
       confirmPassword: "",
       sponsorId: "",
+      side: "",
     });
   };
 
@@ -84,7 +92,11 @@ const referralSide = searchParams.get("side");
           placeholder="Full Name"
           value={formData.name}
           onChange={handleChange}
-          style={{ width: "100%", padding: "10px", marginBottom: "15px" }}
+          style={{
+            width: "100%",
+            padding: "10px",
+            marginBottom: "15px",
+          }}
         />
 
         <input
@@ -93,8 +105,11 @@ const referralSide = searchParams.get("side");
           placeholder="Mobile Number"
           value={formData.mobile}
           onChange={handleChange}
-          
-          style={{ width: "100%", padding: "10px", marginBottom: "15px" }}
+          style={{
+            width: "100%",
+            padding: "10px",
+            marginBottom: "15px",
+          }}
         />
 
         <input
@@ -103,7 +118,11 @@ const referralSide = searchParams.get("side");
           placeholder="Email (Optional)"
           value={formData.email}
           onChange={handleChange}
-          style={{ width: "100%", padding: "10px", marginBottom: "15px" }}
+          style={{
+            width: "100%",
+            padding: "10px",
+            marginBottom: "15px",
+          }}
         />
 
         <input
@@ -112,7 +131,11 @@ const referralSide = searchParams.get("side");
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
-          style={{ width: "100%", padding: "10px", marginBottom: "15px" }}
+          style={{
+            width: "100%",
+            padding: "10px",
+            marginBottom: "15px",
+          }}
         />
 
         <input
@@ -121,7 +144,11 @@ const referralSide = searchParams.get("side");
           placeholder="Confirm Password"
           value={formData.confirmPassword}
           onChange={handleChange}
-          style={{ width: "100%", padding: "10px", marginBottom: "15px" }}
+          style={{
+            width: "100%",
+            padding: "10px",
+            marginBottom: "15px",
+          }}
         />
 
         <input
@@ -131,7 +158,11 @@ const referralSide = searchParams.get("side");
           value={formData.sponsorId}
           onChange={handleChange}
           readOnly={!!referralSponsor}
-          style={{ width: "100%", padding: "10px", marginBottom: "20px" }}
+          style={{
+            width: "100%",
+            padding: "10px",
+            marginBottom: "20px",
+          }}
         />
 
         <button
