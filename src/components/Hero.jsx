@@ -1,4 +1,4 @@
-import heroImage from "../images/hero.jpg";
+import heroImage from "../images/hero.png";
 import { Link } from "react-router-dom";
 
 function Hero() {
@@ -6,7 +6,7 @@ function Hero() {
     <section
       className="hero"
       style={{
-        backgroundImage: `linear-gradient(rgba(15,76,129,.75),rgba(15,76,129,.75)),url(${heroImage})`
+        backgroundImage: `linear-gradient(rgba(15,76,129,.55),rgba(15,76,129,.55)),url(${heroImage})`
       }}
     >
 

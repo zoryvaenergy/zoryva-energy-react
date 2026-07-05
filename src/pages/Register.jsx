@@ -1,7 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { registerUser } from "../services/registration/registerUser";
 
 function Register() {
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+const referralSponsor = searchParams.get("ref");
+const referralSide = searchParams.get("side");
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
@@ -9,7 +15,16 @@ function Register() {
     password: "",
     confirmPassword: "",
     sponsorId: "",
+    side: "",
   });
+
+  useEffect(() => {
+  setFormData((prev) => ({
+    ...prev,
+    sponsorId: referralSponsor || "",
+    side: referralSide || "",
+  }));
+}, [referralSponsor, referralSide]);
 
   const handleChange = (e) => {
     setFormData({
@@ -33,6 +48,7 @@ function Register() {
     alert(result.message);
 
     console.log("Generated User ID :", result.userId);
+    navigate("/dashboard");
 
     // Form Reset
     setFormData({
@@ -77,6 +93,7 @@ function Register() {
           placeholder="Mobile Number"
           value={formData.mobile}
           onChange={handleChange}
+          
           style={{ width: "100%", padding: "10px", marginBottom: "15px" }}
         />
 
@@ -113,6 +130,7 @@ function Register() {
           placeholder="Sponsor ID"
           value={formData.sponsorId}
           onChange={handleChange}
+          readOnly={!!referralSponsor}
           style={{ width: "100%", padding: "10px", marginBottom: "20px" }}
         />
 

@@ -45,6 +45,7 @@ const userData = {
         sponsorId: sponsorCheck?.sponsor?.userId || "",
 sponsorName: sponsorCheck?.sponsor?.name || "",
         referralCode: userId,
+        side: formData.side || "",
         role: USER_ROLE.MEMBER,
         status: USER_STATUS.PRE_LAUNCH,
         registrationDate: now.toLocaleDateString("en-GB"),
@@ -74,11 +75,17 @@ sponsorName: sponsorCheck?.sponsor?.name || "",
     parentId: "",
     position: "",
     level: 0,
-},binary: {
+},
+binary: {
+    parentId: "",
+    position: "",
+    leftChild: "",
+    rightChild: "",
     leftCount: 0,
     rightCount: 0,
     totalPairs: 0,
-},rewards: {
+},
+rewards: {
     totalRewards: 0,
 },settings: {
     notifications: true,

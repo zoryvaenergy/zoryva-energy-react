@@ -1,5 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  FaHome,
+  FaInfoCircle,
+  FaBoxOpen,
+  FaHandshake,
+  FaPhoneAlt,
+  FaSignInAlt,
+  FaUserPlus,
+} from "react-icons/fa";
 import logo from "../images/logo.png";
 
 function Header() {
@@ -41,41 +50,41 @@ function Header() {
 
         <nav className={menuOpen ? "nav active" : "nav"}>
 
-          <Link to="/" onClick={closeMenu}>
-            Home
-          </Link>
+        <Link to="/" onClick={closeMenu}>
+  <FaHome /> Home
+</Link>
 
-          <a href="#about" onClick={closeMenu}>
-            About
-          </a>
+      <a href="#about" onClick={closeMenu}>
+  <FaInfoCircle /> About
+</a>    
 
           <a href="#products" onClick={closeMenu}>
-            Products
-          </a>
+  <FaBoxOpen /> Products
+</a>
 
           <a href="#opportunity" onClick={closeMenu}>
-            Business
-          </a>
+  <FaHandshake /> Business
+</a>
 
           <a href="#contact" onClick={closeMenu}>
-            Contact
-          </a>
+  <FaPhoneAlt /> Contact
+</a>
 
           <Link
-            to="/login"
-            className="login-btn"
-            onClick={closeMenu}
-          >
-            Login
-          </Link>
+  to="/login"
+  className="login-btn"
+  onClick={closeMenu}
+>
+  <FaSignInAlt /> Login
+</Link>
 
-          <Link
-            to="/register"
-            className="register-btn-nav"
-            onClick={closeMenu}
-          >
-            Register
-          </Link>
+        <Link
+  to="/register"
+  className="register-btn-nav"
+  onClick={closeMenu}
+>
+  <FaUserPlus /> Register
+</Link>
 
         </nav>
 

@@ -14,15 +14,15 @@
 
     height:80px;
 
-    background:rgba(15,76,129,.92);
+    background:rgba(15,76,129,.82);
 
-    backdrop-filter:blur(14px);
+    backdrop-filter:blur(18px);
 
-    -webkit-backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(18px);
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.10);
 
-    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    box-shadow:0 10px 30px rgba(0,0,0,.18);
 
     z-index:999;
 
@@ -72,7 +72,7 @@
 
 .logo-image:hover{
 
-    transform:scale(1.05);
+    transform: scale(1.08) rotate(-2deg);
 
 }
 
@@ -95,17 +95,23 @@
 
 .nav a{
 
-    position:relative;
+    position: relative;
 
-    color:#ffffff;
+    display: flex;
 
-    font-size:16px;
+    align-items: center;
 
-    font-weight:600;
+    gap: 8px;
 
-    text-decoration:none;
+    color: #ffffff;
 
-    transition:.3s ease;
+    font-size: 16px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: .3s ease;
 
 }
 
@@ -155,7 +161,7 @@
 
     color:#0F4C81 !important;
 
-    border-radius:8px;
+    border:2px solid transparent;
 
     font-weight:700;
 
