@@ -78,23 +78,47 @@ export async function verifyUser(user) {
   // Binary Parent
   // ==========================
 
-  if (user.binary?.parentId) {
-    checks.push("✅ Binary Parent Found");
-  } else {
-    checks.push("❌ Binary Parent Missing");
-    pass = false;
-  }
+  // ==========================
+// Binary Parent
+// ==========================
+
+if (user.profile.userId === "ZEN000001") {
+
+  checks.push("✅ Root User (No Parent Required)");
+
+} else if (user.binary?.parentId) {
+
+  checks.push("✅ Binary Parent Found");
+
+} else {
+
+  checks.push("❌ Binary Parent Missing");
+  pass = false;
+
+}
 
   // ==========================
   // Binary Position
   // ==========================
 
-  if (user.binary?.position) {
-    checks.push("✅ Binary Position Found");
-  } else {
-    checks.push("❌ Binary Position Missing");
-    pass = false;
-  }
+  // ==========================
+// Binary Position
+// ==========================
+
+if (user.profile.userId === "ZEN000001") {
+
+  checks.push("✅ Root User (No Position Required)");
+
+} else if (user.binary?.position) {
+
+  checks.push("✅ Binary Position Found");
+
+} else {
+
+  checks.push("❌ Binary Position Missing");
+  pass = false;
+
+}
 
   // ==========================
   // Team

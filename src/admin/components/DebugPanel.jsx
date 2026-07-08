@@ -10,17 +10,19 @@ function DebugPanel({ selectedUser }) {
 
   useEffect(() => {
 
-    async function loadDebug() {
+  async function loadDebug() {
 
-      const debugResult = await verifyUser(selectedUser);
+    const debugResult = await verifyUser(selectedUser);
 
-      setResult(debugResult);
+    console.log("Debug Result :", debugResult);
 
-    }
+    setResult(debugResult);
 
-    loadDebug();
+  }
 
-  }, [selectedUser]);
+  loadDebug();
+
+}, [selectedUser]);
 
   return (
     <div>
