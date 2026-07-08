@@ -12,6 +12,7 @@ import { updateBinaryCounts } from "../binary/updateBinaryCounts";
 export async function registerUser(formData) {
 
     console.log("Registration Engine Started");
+    console.time("Registration");
 
     // Step 1 - Form Validation
     const validation = validateForm(formData);
@@ -21,8 +22,9 @@ export async function registerUser(formData) {
     }
 
     // Step 2 - Duplicate Mobile Check
+    console.time("Duplicate Check");
     const duplicateCheck = await checkDuplicateMobile(formData.mobile);
-
+console.timeEnd("Duplicate Check");
     if (!duplicateCheck.success) {
         return duplicateCheck;
     }
@@ -118,30 +120,33 @@ export async function registerUser(formData) {
 
     if (formData.sponsorId && formData.side) {
 
+        console.time("Place User");
         const placed = await placeUser(
             userId,
             sponsorCheck.sponsor.userId,
             formData.side
         );
+        console.timeEnd("Place User");
 
         console.log("PlaceUser Result :", placed);
 
-        console.log("Calling updateTeamCounts...");
+        console.time("Team Counts");
 
         await updateTeamCounts(sponsorCheck.sponsor.userId);
+        console.timeEnd("Team Counts");
 
         console.log("updateTeamCounts Finished");
 
-        console.log("Calling updateBinaryCounts...");
+        console.time("Binary Counts");
 
         await updateBinaryCounts(userId);
 
-        console.log("updateBinaryCounts Finished");
+        console.timeEnd("Binary Counts");
 
     }
 
     console.log("Generated User ID :", userId);
-
+console.timeEnd("Registration");
     return {
         success: true,
         message: "Registration Successful",

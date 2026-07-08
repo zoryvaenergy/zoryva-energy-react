@@ -1,5 +1,6 @@
+import AdminDashboard from "./admin/AdminDashboard";
 import "./App.css";
-
+import MyTeam from "./pages/MyTeam";
 import "./styles/globals.css";
 import "./styles/variables.css";
 import "./styles/header.css";
@@ -18,11 +19,12 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import FirebaseTest from "./components/FirebaseTest";
 import RegistrationSuccess from "./pages/RegistrationSuccess";
-
+import AdminLogin from "./admin/AdminLogin";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/my-team" element={<MyTeam />} />
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -32,7 +34,8 @@ function App() {
   element={<RegistrationSuccess />}
 />
         <Route path="/test" element={<FirebaseTest />} />
-
+<Route path="/admin-login" element={<AdminLogin />} />
+<Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>
     </BrowserRouter>
   );
