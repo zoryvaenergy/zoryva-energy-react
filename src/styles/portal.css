@@ -1,0 +1,229 @@
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#eef3f8;
+}
+
+.portal-container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+    background:linear-gradient(
+        135deg,
+        #0b4da2,
+        #0f6fc6,
+        #e9f3ff
+    );
+
+}
+
+.portal-card{
+
+    width: 480px;
+    max-width: 90%;
+
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    padding: 40px;
+
+    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+
+    text-align: center;
+
+    transition: 0.3s;
+
+}
+
+.portal-card:hover{
+
+    transform: translateY(-5px);
+
+}
+
+.portal-title{
+
+    font-size:38px;
+
+    font-weight:bold;
+
+    color:#0b4ea2;
+
+    margin-bottom:10px;
+
+}
+
+.portal-subtitle{
+
+    font-size:22px;
+
+    font-weight:600;
+
+    color:#333;
+
+    margin-bottom:8px;
+
+}
+
+.portal-text{
+
+    color:#666;
+
+    margin-bottom:35px;
+
+}
+
+.portal-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    margin:30px 0;
+}
+
+.portal-buttons button{
+
+    height:52px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.portal-buttons button:first-child{
+
+    background:#0b4ea2;
+
+    color:white;
+
+}
+
+.portal-buttons button:last-child{
+
+    background:#ffb400;
+
+    color:#111;
+
+}
+
+.portal-buttons button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.portal-links{
+
+    text-align:left;
+
+    line-height:2;
+
+    color:#555;
+
+    margin-bottom:30px;
+
+}
+
+.portal-version{
+
+    color:#999;
+
+    font-size:14px;
+
+}
+.portal-logo{
+
+    margin-bottom:20px;
+
+}
+
+.portal-logo img{
+
+    width:170px;
+
+    height:auto;
+
+}
+.portal-links p{
+
+    background:#f8f9fc;
+
+    padding:14px 18px;
+
+    margin:10px 0;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    border:1px solid #e5e5e5;
+
+}
+
+.portal-links p:hover{
+
+    background:#0b4da2;
+
+    color:white;
+
+    transform:translateX(5px);
+
+}
+.portal-section-title{
+
+    text-align:left;
+
+    color:#0b4da2;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    margin:20px 0 15px;
+
+}
+.portal-footer{
+
+    margin-top:30px;
+
+    border-top:1px solid #ddd;
+
+    padding-top:20px;
+
+    color:#666;
+
+    font-size:14px;
+
+}
+
+.portal-footer small{
+
+    display:block;
+
+    margin-top:8px;
+
+    color:#0b4da2;
+
+    font-weight:600;
+
+}

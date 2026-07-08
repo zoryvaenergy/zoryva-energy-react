@@ -1,3 +1,4 @@
+import Portal from "./pages/Portal";
 import AdminDashboard from "./admin/AdminDashboard";
 import "./App.css";
 import MyTeam from "./pages/MyTeam";
@@ -38,6 +39,7 @@ function App() {
         <Route path="/admin-setup" element={<AdminSetup />} />
 <Route path="/admin-login" element={<AdminLogin />} />
 <Route path="/admin-dashboard" element={<AdminDashboard />} />
+     <Route path="/portal" element={<Portal />} />
       </Routes>
     </BrowserRouter>
   );
