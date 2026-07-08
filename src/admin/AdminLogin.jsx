@@ -1,60 +1,118 @@
-
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { checkAdminExists } from "./services/adminSetup/checkAdminExists";
-
+import { adminAuth } from "./services/adminAuth";
+import { adminSession } from "./services/adminSession";
 function AdminLogin() {
+  const navigate = useNavigate();
 
-  const [adminExists, setAdminExists] = useState(null);
+    const [adminExists, setAdminExists] = useState(null);
 
-  useEffect(() => {
+    const [formData, setFormData] = useState({
+        adminId: "",
+        password: ""
+    });
 
-    async function checkAdmin() {
+    const [message, setMessage] = useState("");
 
-      const exists = await checkAdminExists();
+    useEffect(() => {
 
-      console.log("Admin Exists :", exists);
+        async function checkAdmin() {
+            const exists = await checkAdminExists();
+            setAdminExists(exists);
+        }
 
-      setAdminExists(exists);
+        checkAdmin();
+
+    }, []);
+
+    function handleChange(e) {
+
+        const { name, value } = e.target;
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value
+        }));
 
     }
 
-    checkAdmin();
+    async function handleSubmit(e) {
 
-  }, []);
+        e.preventDefault();
 
-  if (adminExists === null) {
+        const result = await adminAuth(
+    formData.adminId,
+    formData.password
+);
 
-    return <h2>Checking Admin...</h2>;
+setMessage(result.message);
 
-  }
+if (result.success) {
 
-  if (!adminExists) {
+    adminSession(result.admin);
+    navigate("/admin-dashboard");
+
+}
+
+console.log(result);
+
+    }
+
+    if (adminExists === null) {
+        return <h2>Checking Admin...</h2>;
+    }
+
+    if (!adminExists) {
+        return (
+            <div>
+                <h2>Create Super Admin</h2>
+                <p>No Admin Found.</p>
+            </div>
+        );
+    }
 
     return (
 
-      <div>
+        <div style={{ maxWidth: "400px", margin: "50px auto" }}>
 
-        <h2>Create Super Admin</h2>
+            <h2>Admin Login</h2>
 
-        <p>No Admin Found.</p>
+            <form onSubmit={handleSubmit}>
 
-      </div>
+                <input
+                    type="text"
+                    name="adminId"
+                    placeholder="Admin ID"
+                    value={formData.adminId}
+                    onChange={handleChange}
+                />
+
+                <br /><br />
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    value={formData.password}
+                    onChange={handleChange}
+                />
+
+                <br /><br />
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+            <br />
+
+            <h3>{message}</h3>
+
+        </div>
 
     );
-
-  }
-
-  return (
-
-    <div>
-
-      <h2>Admin Login</h2>
-
-      <p>Super Admin Found.</p>
-
-    </div>
-
-  );
 
 }
 

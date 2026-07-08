@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { checkAdminSession } from "./services/checkAdminSession";
 import { AdminProvider } from "./context/AdminContext";
 import { useState } from "react";
 import TopBar from "./components/TopBar";
@@ -11,6 +14,16 @@ import AdminLayout from "./layouts/AdminLayout";
 import "./css/admin.css";
 import BinaryTree from "./components/BinaryTree";
 function AdminDashboard() {
+  const navigate = useNavigate();
+      useEffect(() => {
+
+    const isLoggedIn = checkAdminSession();
+
+    if (!isLoggedIn) {
+        navigate("/admin-login");
+    }
+
+}, [navigate]);
     const [selectedUser, setSelectedUser] = useState(null);
   return (
       <AdminProvider>

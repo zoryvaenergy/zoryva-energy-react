@@ -3,7 +3,7 @@ import { ref, get } from "firebase/database";
 
 export async function checkAdminExists() {
 
-  const snapshot = await get(ref(db, "admins"));
+  const snapshot = await get(ref(db, "admin"));
 
   return snapshot.exists();
 

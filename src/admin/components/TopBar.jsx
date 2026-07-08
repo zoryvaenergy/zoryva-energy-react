@@ -1,7 +1,21 @@
 import "../css/TopBar.css";
+import { useNavigate } from "react-router-dom";
+import { adminLogout } from "../services/adminLogout";
 
 function TopBar() {
+
+  const navigate = useNavigate();
+
+  function handleLogout() {
+
+    adminLogout();
+
+    navigate("/admin-login");
+
+  }
+
   return (
+
     <div className="topbar">
 
       <div className="topbar-left">
@@ -18,14 +32,19 @@ function TopBar() {
 
         <span>👤 Admin</span>
 
-        <button className="logout-btn">
+        <button
+          className="logout-btn"
+          onClick={handleLogout}
+        >
           🚪 Logout
         </button>
 
       </div>
 
     </div>
+
   );
+
 }
 
 export default TopBar;

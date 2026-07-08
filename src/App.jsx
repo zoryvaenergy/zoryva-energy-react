@@ -20,6 +20,7 @@ import Dashboard from "./pages/Dashboard";
 import FirebaseTest from "./components/FirebaseTest";
 import RegistrationSuccess from "./pages/RegistrationSuccess";
 import AdminLogin from "./admin/AdminLogin";
+import AdminSetup from "./admin/AdminSetup";
 function App() {
   return (
     <BrowserRouter>
@@ -34,6 +35,7 @@ function App() {
   element={<RegistrationSuccess />}
 />
         <Route path="/test" element={<FirebaseTest />} />
+        <Route path="/admin-setup" element={<AdminSetup />} />
 <Route path="/admin-login" element={<AdminLogin />} />
 <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>
