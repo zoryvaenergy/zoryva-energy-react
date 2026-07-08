@@ -33,43 +33,45 @@ function Register() {
       [e.target.name]: e.target.value,
     });
   };
+        const handleRegister = async (e) => {
+  e.preventDefault();
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
+  console.log("Registration Button Clicked");
 
-    const result = await registerUser(formData);
+  const result = await registerUser(formData);
 
-    console.log(result);
+  console.log("Result :", result);
 
-    if (!result.success) {
-      alert(result.message);
-      return;
-    }
+  if (!result.success) {
+    alert(result.message);
+    return;
+  }
 
-    console.log("Generated User ID :", result.userId);
+  console.log("Generated User ID :", result.userId);
+  console.log("Navigate Running...");
 
-navigate("/registration-success", {
-  state: {
-    name: formData.name,
-    userId: result.userId,
-    sponsorId: formData.sponsorId || "Company",
-    side: formData.side
-      ? formData.side.toUpperCase()
-      : "AUTO",
-  },
-});
+  navigate("/registration-success", {
+    state: {
+      name: formData.name,
+      userId: result.userId,
+      sponsorId: formData.sponsorId || "Company",
+      side: formData.side
+        ? formData.side.toUpperCase()
+        : "AUTO",
+    },
+  });
 
-    setFormData({
-      name: "",
-      mobile: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      sponsorId: "",
-      side: "",
-    });
-  };
-
+  setFormData({
+    name: "",
+    mobile: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    sponsorId: "",
+    side: "",
+  });
+};
+ 
   return (
     <div
       style={{

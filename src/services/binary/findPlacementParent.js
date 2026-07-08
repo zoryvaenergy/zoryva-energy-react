@@ -11,34 +11,52 @@ export async function findPlacementParent(sponsorId, side) {
     }
 
     const users = snapshot.val();
+
     const sponsor = users[sponsorId];
 
-if (!sponsor) {
-    return null;
-}
-let currentUser = sponsor;
-if (side === "left") {
-    while (currentUser.binary.leftChild) {
+    if (!sponsor) {
+        return null;
+    }
 
-    currentUser = users[currentUser.binary.leftChild];
+    let currentUser = sponsor;
 
-}
+    if (side === "left") {
 
-    // Left Chain Logic
+        while (
+            currentUser &&
+            currentUser.binary &&
+            currentUser.binary.leftChild
+        ) {
 
-} else if (side === "right") {
-    while (currentUser.binary.rightChild) {
+            const nextUser = users[currentUser.binary.leftChild];
 
-    currentUser = users[currentUser.binary.rightChild];
+            if (!nextUser) {
+                break;
+            }
 
-}
+            currentUser = nextUser;
+        }
 
-    // Right Chain Logic
+    }
 
-}
+    else if (side === "right") {
 
-    // Logic next step me likhenge
+        while (
+            currentUser &&
+            currentUser.binary &&
+            currentUser.binary.rightChild
+        ) {
+
+            const nextUser = users[currentUser.binary.rightChild];
+
+            if (!nextUser) {
+                break;
+            }
+
+            currentUser = nextUser;
+        }
+
+    }
 
     return currentUser;
-
 }
