@@ -1,44 +1,240 @@
-.why {
-  padding: 70px 8%;
-  background: #f8f9fa;
-  text-align: center;
+/* ==========================================
+   WHY CHOOSE ZORYVA
+========================================== */
+
+.whychoose{
+
+    padding:100px 20px;
+
+    background:#ffffff;
+
 }
 
-.why h2 {
-  font-size: 36px;
-  color: #0b3d2e;
-  margin-bottom: 50px;
+.why-header{
+
+    max-width:800px;
+
+    margin:auto;
+
+    text-align:center;
+
+    margin-bottom:50px;
+
 }
 
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
+.why-header h2{
+
+    font-size:58px;
+
+    max-width:900px;
+
+    margin:auto;
+
+    line-height:1.2;
+
 }
 
-.why-card {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-  transition: .3s;
+.why-header h2 span{
+
+    color:#FDB813;
+
 }
 
-.why-card:hover {
-  transform: translateY(-8px);
+.why-header p{
+
+    font-size:19px;
+
+    color:#666;
+
+    line-height:1.8;
+
 }
 
-.why-icon {
-  font-size: 50px;
-  margin-bottom: 20px;
+.why-grid{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
 }
 
-.why-card h3 {
-  color: #0b3d2e;
-  margin-bottom: 15px;
+/* ==========================================
+   CARD
+========================================== */
+
+.why-card{
+
+    background:#fff;
+
+    border-radius:22px;
+
+    padding:45px 35px;
+
+    text-align:center;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+    transition:.35s;
+
 }
 
-.why-card p {
-  color: #555;
-  line-height: 1.6;
+.why-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 25px 45px rgba(0,0,0,.15);
+
 }
+
+.why-icon{
+
+    width:80px;
+
+    height:80px;
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+    border-radius:50%;
+
+    background:#FDB813;
+
+    color:#0F4C81;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:38px;
+
+    font-weight:bold;
+
+}
+/* ==========================================
+   CONTENT
+========================================== */
+
+.why-card h3{
+
+    font-size:28px;
+
+    color:#0F4C81;
+
+    margin-bottom:18px;
+
+    font-weight:700;
+
+}
+
+.why-card p{
+
+    color:#666;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+}
+
+/* ==========================================
+   HOVER EFFECT
+========================================== */
+
+.why-card:hover .why-icon{
+
+    transform:rotate(8deg) scale(1.08);
+
+    transition:.35s;
+
+}
+
+.why-card:hover h3{
+
+    color:#FDB813;
+
+    transition:.35s;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+.why-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.whychoose{
+
+    padding:80px 20px;
+
+}
+
+.why-header h2{
+
+    font-size:36px;
+
+}
+
+.why-header p{
+
+    font-size:17px;
+
+}
+
+.why-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.why-card{
+
+    padding:35px 25px;
+
+}
+
+.why-icon{
+
+    width:70px;
+
+    height:70px;
+
+    font-size:32px;
+
+}
+
+.why-card h3{
+
+    font-size:24px;
+
+}
+
+.why-card p{
+
+    font-size:16px;
+
+}
+
+}
+
+/* ==========================================
+   END
+========================================== */

@@ -1,67 +1,199 @@
 import "./OurServices.css";
-
 function OurServices() {
 
-  const services = [
-    {
-      icon: "☀️",
-      title: "Solar Panel Installation",
-      text: "Professional rooftop and ground-mounted solar installation services.",
-    },
-    {
-      icon: "🔋",
-      title: "Solar Battery Solutions",
-      text: "High-performance batteries for reliable energy storage and backup.",
-    },
-    {
-      icon: "💡",
-      title: "Solar Home Systems",
-      text: "Complete solar solutions for homes with maximum energy savings.",
-    },
-    {
-      icon: "🏭",
-      title: "Commercial Solar",
-      text: "Customized solar power systems for businesses and industries.",
-    },
-    {
-      icon: "🛠",
-      title: "Maintenance & Support",
-      text: "Regular maintenance and technical support for long-lasting performance.",
-    },
-    {
-      icon: "🤝",
-      title: "Dealer & Distributor",
-      text: "Join our growing business network as a dealer or distributor.",
-    },
-  ];
-
   return (
-    <section className="services">
 
-      <h2>Our Services</h2>
+    <section
+      className="services"
+      id="services"
+    >
 
-      <div className="services-grid">
+      <div className="services-header">
 
-        {services.map((service, index) => (
+        <span className="section-tag">
 
-          <div className="service-card" key={index}>
+          OUR SERVICES
 
-            <div className="service-icon">
-              {service.icon}
-            </div>
+        </span>
 
-            <h3>{service.title}</h3>
+        <h2>
 
-            <p>{service.text}</p>
+          Complete <span>Solar</span> Solutions
 
-          </div>
+        </h2>
 
-        ))}
+        <p>
+
+          From consultation to installation and after-sales
+          support, ZORYVA ENERGY provides complete renewable
+          energy solutions.
+
+        </p>
 
       </div>
 
-    </section>
+      <div className="services-grid">
+
+        {/* Service 1 */}
+
+        <div className="service-card">
+
+          <div className="service-icon">
+
+            ☀
+
+          </div>
+
+          <h3>
+
+            Solar Installation
+
+          </h3>
+
+          <p>
+
+            Professional rooftop and ground mounted
+            solar installation for homes,
+            businesses and industries.
+
+          </p>
+
+        </div>
+
+        {/* Service 2 */}
+
+        <div className="service-card">
+
+          <div className="service-icon">
+
+            🔋
+
+          </div>
+
+          <h3>
+
+            Battery Solutions
+
+          </h3>
+
+          <p>
+
+            High performance solar batteries
+            for reliable backup and
+            uninterrupted power supply.
+
+          </p>
+
+        </div>
+                {/* Service 3 */}
+
+        <div className="service-card">
+
+          <div className="service-icon">
+
+            💧
+
+          </div>
+
+          <h3>
+
+            Water Solutions
+
+          </h3>
+
+          <p>
+
+            Domestic and commercial RO
+            systems with reliable water
+            purification technology.
+
+          </p>
+
+        </div>
+
+        {/* Service 4 */}
+
+        <div className="service-card">
+
+          <div className="service-icon">
+
+            🚜
+
+          </div>
+
+          <h3>
+
+            Agriculture Solutions
+
+          </h3>
+
+          <p>
+
+            Solar water pumps, irrigation
+            systems and smart farming
+            energy solutions.
+
+          </p>
+
+        </div>
+
+        {/* Service 5 */}
+
+        <div className="service-card">
+
+          <div className="service-icon">
+
+            🛠
+
+          </div>
+
+          <h3>
+
+            Maintenance & Support
+
+          </h3>
+
+          <p>
+
+            Preventive maintenance,
+            technical support and quick
+            service assistance.
+
+          </p>
+
+        </div>
+
+        {/* Service 6 */}
+
+        <div className="service-card">
+
+          <div className="service-icon">
+
+            🎓
+
+          </div>
+
+          <h3>
+
+            Training & Consultation
+
+          </h3>
+
+          <p>
+
+            Expert guidance, business
+            consultation and technical
+            training for partners.
+
+          </p>
+
+        </div>
+
+      </div>
+          </section>
+
   );
+
 }
 
 export default OurServices;

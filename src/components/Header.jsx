@@ -6,8 +6,7 @@ import {
   FaBoxOpen,
   FaHandshake,
   FaPhoneAlt,
-  FaSignInAlt,
-  FaUserPlus,
+  FaUserCircle,
 } from "react-icons/fa";
 import logo from "../images/logo.png";
 
@@ -70,20 +69,12 @@ function Header() {
   <FaPhoneAlt /> Contact
 </a>
 
-          <Link
-  to="/login"
-  className="login-btn"
-  onClick={closeMenu}
->
-  <FaSignInAlt /> Login
-</Link>
-
-        <Link
-  to="/register"
+       <Link
+  to="/portal"
   className="register-btn-nav"
   onClick={closeMenu}
 >
-  <FaUserPlus /> Register
+  <FaUserCircle /> Member Portal
 </Link>
 
         </nav>

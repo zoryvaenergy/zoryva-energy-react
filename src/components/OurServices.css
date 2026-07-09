@@ -1,44 +1,257 @@
+/* ==========================================
+   OUR SERVICES
+========================================== */
+
 .services{
-    padding:80px 8%;
-    background:#ffffff;
-    text-align:center;
+
+    padding:100px 20px;
+
+    background:#F8FBFF;
+
 }
 
-.services h2{
-    font-size:36px;
-    color:#0b3d2e;
-    margin-bottom:50px;
+.services-header{
+
+    max-width:800px;
+
+    margin:auto;
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+.services-header h2{
+
+    font-size:52px;
+
+    color:#0F4C81;
+
+    margin:20px 0;
+
+    font-weight:800;
+
+}
+
+.services-header h2 span{
+
+    color:#FDB813;
+
+}
+
+.services-header p{
+
+    font-size:19px;
+
+    color:#666;
+
+    line-height:1.8;
+
 }
 
 .services-grid{
+
+    max-width:1300px;
+
+    margin:auto;
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
-    gap:25px;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
 }
 
+/* ==========================================
+   SERVICE CARD
+========================================== */
+
 .service-card{
-    background:#f8f9fa;
-    padding:35px 25px;
-    border-radius:12px;
-    transition:.3s;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    background:#fff;
+
+    border-radius:22px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+    transition:.35s;
+
 }
 
 .service-card:hover{
-    transform:translateY(-8px);
+
+    transform:translateY(-10px);
+
+    box-shadow:0 25px 45px rgba(0,0,0,.15);
+
 }
 
 .service-icon{
-    font-size:50px;
-    margin-bottom:20px;
+
+    width:80px;
+
+    height:80px;
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+    border-radius:50%;
+
+    background:#FDB813;
+
+    color:#0F4C81;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:38px;
+
+    font-weight:bold;
+
 }
+/* ==========================================
+   CONTENT
+========================================== */
 
 .service-card h3{
-    color:#0b3d2e;
-    margin-bottom:15px;
+
+    font-size:28px;
+
+    color:#0F4C81;
+
+    margin-bottom:18px;
+
+    font-weight:700;
+
 }
 
 .service-card p{
-    color:#555;
-    line-height:1.7;
+
+    color:#666;
+
+    font-size:17px;
+
+    line-height:1.8;
+
 }
+
+/* ==========================================
+   HOVER EFFECT
+========================================== */
+
+.service-card:hover .service-icon{
+
+    transform:rotate(8deg) scale(1.08);
+
+    transition:.35s;
+
+}
+
+.service-card:hover h3{
+
+    color:#FDB813;
+
+    transition:.35s;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+.services-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.services{
+
+    background:linear-gradient(
+        180deg,
+        #F8FBFF 0%,
+        #EEF6FF 100%
+    );
+
+}
+
+.services-header h2{
+
+    font-size:36px;
+
+}
+
+.services-header p{
+
+    font-size:17px;
+
+}
+
+.services-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.service-card{
+
+    padding:35px 25px;
+
+}
+
+.service-icon{
+
+    transition:.35s;
+
+}
+
+.service-card:hover .service-icon{
+
+    transform:scale(1.1) rotate(10deg);
+
+}
+
+.service-card h3{
+
+    font-size:24px;
+
+}
+
+.service-card p{
+
+    font-size:16px;
+display:flex;
+flex-direction:column;
+justify-content:flex-start;
+height:100%;
+}
+.service-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:0 30px 60px rgba(0,0,0,.15);
+
+    border-bottom:5px solid #FDB813;
+
+}
+}
+
+/* ==========================================
+   END
+========================================== */
