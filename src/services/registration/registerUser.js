@@ -129,7 +129,11 @@ console.timeEnd("Duplicate Check");
         console.timeEnd("Place User");
 
         console.log("PlaceUser Result :", placed);
+        console.time("Binary Counts");
 
+        await updateBinaryCounts(userId);
+
+        console.timeEnd("Binary Counts");
         console.time("Team Counts");
 
         await updateTeamCounts(sponsorCheck.sponsor.userId);
@@ -137,11 +141,7 @@ console.timeEnd("Duplicate Check");
 
         console.log("updateTeamCounts Finished");
 
-        console.time("Binary Counts");
-
-        await updateBinaryCounts(userId);
-
-        console.timeEnd("Binary Counts");
+       
 
     }
 

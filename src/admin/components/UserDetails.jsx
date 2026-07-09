@@ -59,7 +59,11 @@ function UserDetails({ selectedUser }) {
 
       <p><strong>🟢 Status :</strong> {selectedUser.profile.status}</p>
 
-      <p><strong>👨‍👩‍👧 Team Count :</strong> {selectedUser.team.totalTeam}</p>
+      <p>
+  <strong>👨‍👩‍👧 Team Count :</strong>{" "}
+  {(selectedUser.binary?.leftCount || 0) +
+   (selectedUser.binary?.rightCount || 0)}
+</p>
 
       <p>
         <strong>🌳 Binary Count :</strong>{" "}

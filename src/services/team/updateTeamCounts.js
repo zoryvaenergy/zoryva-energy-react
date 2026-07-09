@@ -23,10 +23,9 @@ export async function updateTeamCounts(sponsorId) {
 
         const team = user.team || {};
 
-        const updatedTeam = {
-            ...team,
-            totalTeam: (team.totalTeam || 0) + 1,
-        };
+       const updatedTeam = {
+    ...team,
+};
 
         if (currentId === sponsorId) {
             updatedTeam.directTeam = (team.directTeam || 0) + 1;

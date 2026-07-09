@@ -1,3 +1,4 @@
+import RepairPanel from "./components/RepairPanel";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { checkAdminSession } from "./services/checkAdminSession";
@@ -43,6 +44,7 @@ function AdminDashboard() {
 <BinaryTree selectedUser={selectedUser} />
 
 <DebugPanel selectedUser={selectedUser} />
+  <RepairPanel />
   </AdminLayout>
  </AdminProvider>
 
