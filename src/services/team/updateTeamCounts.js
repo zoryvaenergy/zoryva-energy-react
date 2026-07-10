@@ -12,11 +12,13 @@ export async function updateTeamCounts(sponsorId) {
         console.log("Updating Team For:", currentId);
 
         const userRef = ref(db, `users/${currentId}`);
+
         const snapshot = await get(userRef);
 
         if (!snapshot.exists()) {
 
             console.log("User Not Found:", currentId);
+
             break;
 
         }
@@ -25,11 +27,15 @@ export async function updateTeamCounts(sponsorId) {
 
         const team = user.team || {};
 
+        const leftCount = user.binary?.leftCount || 0;
+
+        const rightCount = user.binary?.rightCount || 0;
+
         const updatedTeam = {
 
             ...team,
 
-            totalTeam: (team.totalTeam || 0) + 1,
+            totalTeam: leftCount + rightCount,
 
         };
 
@@ -43,7 +49,9 @@ export async function updateTeamCounts(sponsorId) {
         console.log("Updating Team Data:", updatedTeam);
 
         await update(userRef, {
+
             team: updatedTeam,
+
         });
 
         currentId = user.profile?.sponsorId || "";
