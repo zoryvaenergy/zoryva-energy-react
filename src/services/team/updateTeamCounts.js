@@ -15,20 +15,29 @@ export async function updateTeamCounts(sponsorId) {
         const snapshot = await get(userRef);
 
         if (!snapshot.exists()) {
+
             console.log("User Not Found:", currentId);
             break;
+
         }
 
         const user = snapshot.val();
 
         const team = user.team || {};
 
-       const updatedTeam = {
-    ...team,
-};
+        const updatedTeam = {
+
+            ...team,
+
+            totalTeam: (team.totalTeam || 0) + 1,
+
+        };
 
         if (currentId === sponsorId) {
-            updatedTeam.directTeam = (team.directTeam || 0) + 1;
+
+            updatedTeam.directTeam =
+                (team.directTeam || 0) + 1;
+
         }
 
         console.log("Updating Team Data:", updatedTeam);
@@ -38,7 +47,9 @@ export async function updateTeamCounts(sponsorId) {
         });
 
         currentId = user.profile?.sponsorId || "";
+
     }
 
     console.log("Team Engine Finished");
+
 }

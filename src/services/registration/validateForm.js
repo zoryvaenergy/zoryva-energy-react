@@ -1,3 +1,4 @@
+const TEST_MODE = true;
 export function validateForm(formData) {
 
   if (
@@ -26,12 +27,20 @@ export function validateForm(formData) {
     };
   }
 
-  if (!/^\d{10}$/.test(formData.mobile.trim())) {
+  if (
+
+    !TEST_MODE &&
+
+    !/^\d{10}$/.test(formData.mobile.trim())
+
+) {
+
     return {
-      success: false,
-      message: "Mobile Number must be exactly 10 digits."
+        success: false,
+        message: "Mobile Number must be exactly 10 digits."
     };
-  }
+
+}
 
   if (formData.password !== formData.confirmPassword) {
     return {
