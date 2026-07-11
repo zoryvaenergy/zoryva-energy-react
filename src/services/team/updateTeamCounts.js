@@ -2,7 +2,7 @@ import { db } from "../../firebase/firebase";
 import { ref, get, update } from "firebase/database";
 
 export async function updateTeamCounts(sponsorId) {
-
+console.time("Team Engine Total");
     console.log("Team Engine Started:", sponsorId);
 
     let currentId = sponsorId;
@@ -38,7 +38,16 @@ export async function updateTeamCounts(sponsorId) {
             totalTeam: leftCount + rightCount,
 
         };
-
+console.log(
+    "TEAM DEBUG",
+    currentId,
+    "Left:",
+    leftCount,
+    "Right:",
+    rightCount,
+    "Saving:",
+    leftCount + rightCount
+);
         if (currentId === sponsorId) {
 
             updatedTeam.directTeam =
@@ -59,5 +68,5 @@ export async function updateTeamCounts(sponsorId) {
     }
 
     console.log("Team Engine Finished");
-
+console.timeEnd("Team Engine Total");
 }

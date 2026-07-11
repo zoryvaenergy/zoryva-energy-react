@@ -59,7 +59,12 @@ export async function updateBinaryCounts(userId) {
         }
 
         const parent = parentSnap.val();
-
+         console.log(
+    "Left:",
+    parent.binary?.leftCount,
+    "Right:",
+    parent.binary?.rightCount
+);
         if (parent.binary.leftChild === currentChildId) {
 
             await update(parentRef, {

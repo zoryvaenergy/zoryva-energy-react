@@ -121,23 +121,52 @@ console.timeEnd("Duplicate Check");
     if (formData.sponsorId && formData.side) {
 
         console.time("Place User");
-        const placed = await placeUser(
-            userId,
-            sponsorCheck.sponsor.userId,
-            formData.side
-        );
-        console.timeEnd("Place User");
 
-        console.log("PlaceUser Result :", placed);
-        console.time("Binary Counts");
+let placed = false;
 
-        await updateBinaryCounts(userId);
+let attempts = 0;
 
-        console.timeEnd("Binary Counts");
-        console.time("Team Counts");
+while (!placed && attempts < 10) {
 
-        await updateTeamCounts(sponsorCheck.sponsor.userId);
-        console.timeEnd("Team Counts");
+    attempts++;
+
+    placed = await placeUser(
+        userId,
+        sponsorCheck.sponsor.userId,
+        formData.side
+    );
+
+    console.log(
+        "Placement Attempt:",
+        attempts,
+        "Result:",
+        placed
+    );
+
+}
+
+console.timeEnd("Place User");
+       if (!placed) {
+
+    return {
+
+        success: false,
+
+        message:
+            "Placement failed. Please try again."
+
+    };
+
+}
+      setTimeout(async () => {
+
+    await updateBinaryCounts(userId);
+
+    await updateTeamCounts(
+        sponsorCheck.sponsor.userId
+    );
+
+}, 0);  
 
         console.log("updateTeamCounts Finished");
 

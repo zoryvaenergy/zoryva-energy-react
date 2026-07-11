@@ -18,7 +18,7 @@ function Register() {
     sponsorId: "",
     side: "",
   });
-
+const [loading, setLoading] = useState(false);
   useEffect(() => {
     setFormData((prev) => ({
       ...prev,
@@ -37,19 +37,26 @@ function Register() {
   e.preventDefault();
 
   console.log("Registration Button Clicked");
+if (loading) return;
 
+setLoading(true);
   const result = await registerUser(formData);
 
   console.log("Result :", result);
 
-  if (!result.success) {
-    alert(result.message);
-    return;
-  }
+    if (!result.success) {
+
+  setLoading(false);
+
+  alert(result.message);
+
+  return;
+}
+  
 
   console.log("Generated User ID :", result.userId);
   console.log("Navigate Running...");
-
+setLoading(false);
   navigate("/registration-success", {
     state: {
       name: formData.name,
@@ -206,19 +213,21 @@ function Register() {
 </div>
 
         <button
-          type="submit"
-          style={{
-            width: "100%",
-            padding: "12px",
-            background: "#0a7f2e",
-            color: "#fff",
-            border: "none",
-            cursor: "pointer",
-            fontSize: "16px",
-          }}
-        >
-          Register
-        </button>
+  type="submit"
+  disabled={loading}
+  style={{
+    width: "100%",
+    padding: "12px",
+    background: loading ? "#888" : "#0a7f2e",
+    color: "#fff",
+    border: "none",
+    cursor: loading ? "not-allowed" : "pointer",
+    fontSize: "16px",
+    opacity: loading ? 0.7 : 1,
+  }}
+>
+  {loading ? "Registering..." : "Register"}
+</button>
 
       </form>
     </div>
