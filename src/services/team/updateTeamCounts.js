@@ -1,72 +1,119 @@
 import { db } from "../../firebase/firebase";
-import { ref, get, update } from "firebase/database";
+
+import {
+    ref,
+    get,
+    runTransaction
+} from "firebase/database";
 
 export async function updateTeamCounts(sponsorId) {
-console.time("Team Engine Total");
-    console.log("Team Engine Started:", sponsorId);
+
+    console.time("Team Engine Total");
+
+    console.log(
+        "Team Engine Started:",
+        sponsorId
+    );
 
     let currentId = sponsorId;
 
     while (currentId) {
 
-        console.log("Updating Team For:", currentId);
+        console.log(
+            "Updating Team For:",
+            currentId
+        );
 
-        const userRef = ref(db, `users/${currentId}`);
+        const userRef = ref(
+            db,
+            `users/${currentId}`
+        );
 
         const snapshot = await get(userRef);
 
         if (!snapshot.exists()) {
 
-            console.log("User Not Found:", currentId);
+            console.log(
+                "User Not Found:",
+                currentId
+            );
 
             break;
-
         }
 
         const user = snapshot.val();
 
-        const team = user.team || {};
+        const leftCount =
+            user.binary?.leftCount || 0;
 
-        const leftCount = user.binary?.leftCount || 0;
+        const rightCount =
+            user.binary?.rightCount || 0;
 
-        const rightCount = user.binary?.rightCount || 0;
+        console.log(
+            "TEAM DEBUG",
+            currentId,
+            "Left:",
+            leftCount,
+            "Right:",
+            rightCount,
+            "Saving:",
+            leftCount + rightCount
+        );
 
-        const updatedTeam = {
+        await runTransaction(
 
-            ...team,
+            ref(
+                db,
+                `users/${currentId}/team`
+            ),
 
-            totalTeam: leftCount + rightCount,
+            (currentTeam) => {
 
-        };
-console.log(
-    "TEAM DEBUG",
-    currentId,
-    "Left:",
-    leftCount,
-    "Right:",
-    rightCount,
-    "Saving:",
-    leftCount + rightCount
-);
-        if (currentId === sponsorId) {
+                const teamData =
+                    currentTeam || {};
 
-            updatedTeam.directTeam =
-                (team.directTeam || 0) + 1;
+                const updatedTeam = {
 
-        }
+                    ...teamData,
 
-        console.log("Updating Team Data:", updatedTeam);
+                    totalTeam:
+                        leftCount +
+                        rightCount,
 
-        await update(userRef, {
+                };
 
-            team: updatedTeam,
+                if (
+                    currentId === sponsorId
+                ) {
 
-        });
+                    updatedTeam.directTeam =
+                        (
+                            teamData.directTeam ||
+                            0
+                        ) + 1;
+                }
 
-        currentId = user.profile?.sponsorId || "";
+                console.log(
+                    "Updating Team Data:",
+                    updatedTeam
+                );
+
+                return updatedTeam;
+            }
+
+        );
+
+        currentId =
+            user.profile?.sponsorId || "";
 
     }
 
-    console.log("Team Engine Finished");
-console.timeEnd("Team Engine Total");
+    console.log(
+        "Team Engine Finished"
+    );
+
+    console.timeEnd(
+        "Team Engine Total"
+    );
+
 }

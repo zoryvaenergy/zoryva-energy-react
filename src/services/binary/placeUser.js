@@ -14,7 +14,12 @@ export async function placeUser(userId, sponsorId, side) {
     if (!parent) {
         return false;
     }
-
+          console.log(
+    "PLACEMENT PARENT:",
+    parent.profile.userId,
+    "NEW USER:",
+    userId
+);
     const parentRef = ref(
         db,
         `users/${parent.profile.userId}`
@@ -69,9 +74,21 @@ export async function placeUser(userId, sponsorId, side) {
 );
 if (!transactionResult.committed) {
 
+    console.log(
+        "TRANSACTION FAILED:",
+        userId
+    );
+
     return false;
 
 }
+await update(parentRef, {
+
+    [side === "left"
+        ? "binary/nextLeftSlot"
+        : "binary/nextRightSlot"]: userId,
+
+});
 
     await update(newUserRef, {
         "binary/parentId": parent.profile.userId,

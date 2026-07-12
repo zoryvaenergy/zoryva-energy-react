@@ -1,4 +1,5 @@
 import { updateTeamCounts } from "../team/updateTeamCounts";
+import { startWorkers } from "../../workers/startWorkers";
 import { saveUser } from "./saveUser";
 import { USER_STATUS } from "../../constants/status";
 import { USER_ROLE } from "../../constants/roles";
@@ -91,15 +92,21 @@ console.timeEnd("Duplicate Check");
             level: 0,
         },
 
-        binary: {
-            parentId: "",
-            position: "",
-            leftChild: "",
-            rightChild: "",
-            leftCount: 0,
-            rightCount: 0,
-            totalPairs: 0,
-        },
+       binary: {
+    parentId: "",
+    position: "",
+
+    leftChild: "",
+    rightChild: "",
+
+    leftCount: 0,
+    rightCount: 0,
+
+    totalPairs: 0,
+
+    nextLeftSlot: "",
+    nextRightSlot: "",
+},
 
         rewards: {
             totalRewards: 0,
@@ -158,17 +165,16 @@ console.timeEnd("Place User");
     };
 
 }
-      setTimeout(async () => {
+      
 
-    await updateBinaryCounts(userId);
+    startWorkers(
+    userId,
+    sponsorCheck.sponsor.userId
+);
 
-    await updateTeamCounts(
-        sponsorCheck.sponsor.userId
-    );
-
-}, 0);  
-
-        console.log("updateTeamCounts Finished");
+console.log(
+    "Workers Started"
+);
 
        
 

@@ -52,7 +52,8 @@ async function countBinaryTree(userId) {
 
     return count;
 
-}/**
+}
+/**
  * Calculate Actual Left Count
  */
 export async function calculateActualLeftCount(userId) {
@@ -66,5 +67,25 @@ export async function calculateActualLeftCount(userId) {
     const user = snapshot.val();
 
     return await countBinaryTree(user.binary?.leftChild);
+
+}
+/**
+ * Calculate Actual Right Count
+ */
+export async function calculateActualRightCount(userId) {
+
+    const snapshot = await get(
+        ref(db, `users/${userId}`)
+    );
+
+    if (!snapshot.exists()) {
+        return 0;
+    }
+
+    const user = snapshot.val();
+
+    return await countBinaryTree(
+        user.binary?.rightChild
+    );
 
 }

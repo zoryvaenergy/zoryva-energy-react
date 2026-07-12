@@ -1,5 +1,10 @@
 import { db } from "../../firebase/firebase";
-import { ref, get, update } from "firebase/database";
+
+import {
+    ref,
+    get,
+    runTransaction
+} from "firebase/database";
 
 export async function updateBinaryCounts(userId) {
 
@@ -22,71 +27,147 @@ export async function updateBinaryCounts(userId) {
             currentChildId
         );
 
-        const childRef = ref(db, `users/${currentChildId}`);
-        const childSnap = await get(childRef);
+        const childRef = ref(
+            db,
+            `users/${currentChildId}`
+        );
+
+        const childSnap = await get(
+            childRef
+        );
 
         if (!childSnap.exists()) {
 
-            console.timeEnd(`Level ${level}`);
-            break;
+            console.timeEnd(
+                `Level ${level}`
+            );
 
+            break;
         }
 
         const child = childSnap.val();
 
-        const parentId = child.binary?.parentId;
+        const parentId =
+            child.binary?.parentId;
 
         console.log(
-            "Parent Found:",
+            "Updating Count For Parent:",
             parentId
         );
 
         if (!parentId) {
 
-            console.timeEnd(`Level ${level}`);
-            break;
+            console.timeEnd(
+                `Level ${level}`
+            );
 
+            break;
         }
 
-        const parentRef = ref(db, `users/${parentId}`);
-        const parentSnap = await get(parentRef);
+        const parentRef = ref(
+            db,
+            `users/${parentId}`
+        );
+
+        const parentSnap = await get(
+            parentRef
+        );
 
         if (!parentSnap.exists()) {
 
-            console.timeEnd(`Level ${level}`);
+            console.timeEnd(
+                `Level ${level}`
+            );
+
             break;
+        }
+
+        const parent =
+            parentSnap.val();
+
+        console.log(
+            "Left:",
+            parent.binary?.leftCount,
+            "Right:",
+            parent.binary?.rightCount
+        );
+
+        // LEFT COUNT
+
+        if (
+
+            parent.binary?.leftChild ===
+            currentChildId
+
+        ) {
+
+            await runTransaction(
+
+                ref(
+                    db,
+                    `users/${parentId}/binary/leftCount`
+                ),
+
+                (currentValue) => {
+
+                    return (
+                        currentValue || 0
+                    ) + 1;
+
+                }
+
+            );
+
+            console.log(
+                "LEFT UPDATED:",
+                parentId
+            );
 
         }
 
-        const parent = parentSnap.val();
-         console.log(
-    "Left:",
-    parent.binary?.leftCount,
-    "Right:",
-    parent.binary?.rightCount
-);
-        if (parent.binary.leftChild === currentChildId) {
+        // RIGHT COUNT
 
-            await update(parentRef, {
-                "binary/leftCount":
-                    (parent.binary.leftCount || 0) + 1,
-            });
+        else if (
 
-        } else if (parent.binary.rightChild === currentChildId) {
+            parent.binary?.rightChild ===
+            currentChildId
 
-            await update(parentRef, {
-                "binary/rightCount":
-                    (parent.binary.rightCount || 0) + 1,
-            });
+        ) {
+
+            await runTransaction(
+
+                ref(
+                    db,
+                    `users/${parentId}/binary/rightCount`
+                ),
+
+                (currentValue) => {
+
+                    return (
+                        currentValue || 0
+                    ) + 1;
+
+                }
+
+            );
+
+            console.log(
+                "RIGHT UPDATED:",
+                parentId
+            );
 
         }
 
-        console.timeEnd(`Level ${level}`);
+        console.timeEnd(
+            `Level ${level}`
+        );
 
         currentChildId = parentId;
 
     }
 
-    console.timeEnd("Binary Engine Total");
+    console.timeEnd(
+        "Binary Engine Total"
+    );
 
 }

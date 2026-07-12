@@ -28,7 +28,8 @@ export async function findPlacementParent(sponsorId, side) {
             currentUser.binary.leftChild
         ) {
 
-            const nextUser = users[currentUser.binary.leftChild];
+            const nextUser =
+                users[currentUser.binary.leftChild];
 
             if (!nextUser) {
                 break;
@@ -37,9 +38,7 @@ export async function findPlacementParent(sponsorId, side) {
             currentUser = nextUser;
         }
 
-    }
-
-    else if (side === "right") {
+    } else {
 
         while (
             currentUser &&
@@ -47,7 +46,8 @@ export async function findPlacementParent(sponsorId, side) {
             currentUser.binary.rightChild
         ) {
 
-            const nextUser = users[currentUser.binary.rightChild];
+            const nextUser =
+                users[currentUser.binary.rightChild];
 
             if (!nextUser) {
                 break;

@@ -11,7 +11,7 @@ import "./styles/products.css";
 import "./styles/opportunity.css";
 import "./styles/footer.css";
 import "./styles/responsive.css";
-
+import StressTest from "./admin/StressTest";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -39,6 +39,10 @@ function App() {
         <Route path="/admin-setup" element={<AdminSetup />} />
 <Route path="/admin-login" element={<AdminLogin />} />
 <Route path="/admin-dashboard" element={<AdminDashboard />} />
+      <Route
+    path="/stress-test"
+    element={<StressTest />}
+/>
      <Route path="/portal" element={<Portal />} />
       </Routes>
     </BrowserRouter>

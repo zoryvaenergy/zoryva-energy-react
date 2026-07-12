@@ -1,4 +1,12 @@
-import { calculateActualDirectTeam } from "./teamDebugService";
+import {
+
+  calculateActualDirectTeam,
+
+  calculateActualLeftCount,
+
+  calculateActualRightCount,
+
+} from "./teamDebugService";
 
 export async function verifyUser(user) {
 
@@ -61,6 +69,57 @@ export async function verifyUser(user) {
   );
 
   pass = false;
+}
+// ==========================
+// Left Count Verification
+// ==========================
+
+const actualLeftCount = await calculateActualLeftCount(
+  user.profile.userId
+);
+
+const savedLeftCount = user.binary?.leftCount || 0;
+
+if (savedLeftCount === actualLeftCount) {
+
+  checks.push(
+    `✅ Left Count Correct (Saved: ${savedLeftCount}, Actual: ${actualLeftCount})`
+  );
+
+} else {
+
+  checks.push(
+    `❌ Left Count Wrong (Saved: ${savedLeftCount}, Actual: ${actualLeftCount})`
+  );
+
+  pass = false;
+
+}
+
+// ==========================
+// Right Count Verification
+// ==========================
+
+const actualRightCount = await calculateActualRightCount(
+  user.profile.userId
+);
+
+const savedRightCount = user.binary?.rightCount || 0;
+
+if (savedRightCount === actualRightCount) {
+
+  checks.push(
+    `✅ Right Count Correct (Saved: ${savedRightCount}, Actual: ${actualRightCount})`
+  );
+
+} else {
+
+  checks.push(
+    `❌ Right Count Wrong (Saved: ${savedRightCount}, Actual: ${actualRightCount})`
+  );
+
+  pass = false;
+
 }
 
   // ==========================
