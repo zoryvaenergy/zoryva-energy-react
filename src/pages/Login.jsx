@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../services/login/loginUser";
-
+import { Link } from "react-router-dom";
+import "../styles/login.css";
+import logo from "../images/logo.png";
 function Login() {
     const navigate = useNavigate();
 
@@ -29,13 +31,19 @@ function Login() {
         }
 
     };
+return (
 
-    return (
-        <div style={{ padding: "50px", textAlign: "center" }}>
+    <div className="login-page">
 
-            <h2>ZORYVA ENERGY LOGIN</h2>
+        <div className="login-card">
+           <img
+    src={logo}
+    alt="Zoryva Logo"
+    className="login-logo"
+/>
+            <h1>ZORYVA ENERGY</h1>
 
-            <br />
+            <h3>Login</h3>
 
             <input
                 type="text"
@@ -45,8 +53,6 @@ function Login() {
                 onChange={handleChange}
             />
 
-            <br /><br />
-
             <input
                 type="password"
                 name="password"
@@ -55,14 +61,35 @@ function Login() {
                 onChange={handleChange}
             />
 
-            <br /><br />
-
-            <button onClick={handleLogin}>
+            <button
+                className="login-btn"
+                onClick={handleLogin}
+            >
                 Login
             </button>
 
+            <p className="forgot-link">
+
+                <Link to="/forgot-password">
+
+                    Forgot Password?
+
+                </Link>
+
+            </p>
+
+            <p className="coming-soon">
+
+                ⚡ OTP Reset Coming Soon
+
+            </p>
+
         </div>
-    );
+
+    </div>
+
+);
+
 }
 
 export default Login;

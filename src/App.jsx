@@ -13,7 +13,7 @@ import "./styles/footer.css";
 import "./styles/responsive.css";
 import StressTest from "./admin/StressTest";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import ForgotPassword from "./pages/ForgotPassword";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -44,6 +44,10 @@ function App() {
     element={<StressTest />}
 />
      <Route path="/portal" element={<Portal />} />
+     <Route
+    path="/forgot-password"
+    element={<ForgotPassword />}
+/>
       </Routes>
     </BrowserRouter>
   );
