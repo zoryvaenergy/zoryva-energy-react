@@ -1,16 +1,30 @@
-import { getDirectTeam } from "../services/team/getDirectTeam";
+
+
 import "./Dashboard.css";
 import { useEffect, useMemo, useState } from "react";
 import { ref, get } from "firebase/database";
 import { db } from "../firebase/firebase";
-import UserBinaryTree from "../components/user/UserBinaryTree";
+
 import { useNavigate } from "react-router-dom";
+import {
+    FaUser,
+    FaUsers,
+    FaArrowLeft,
+    FaArrowRight,
+    FaSitemap,
+    FaCalendarAlt,
+    FaWallet,
+    FaTrophy
+} from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 function Dashboard() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-const [directTeam, setDirectTeam] = useState([]);
-const [selectedDirectUser, setSelectedDirectUser] = useState(null);
-  useEffect(() => {
+
+
+ 
+ 
+useEffect(() => {
     loadUser();
   }, []);
 
@@ -35,11 +49,7 @@ const [selectedDirectUser, setSelectedDirectUser] = useState(null);
 
     setUser(currentUser);
 
-    const team = await getDirectTeam(
-        currentUser.profile.userId
-    );
-
-    setDirectTeam(team);
+    
 }
     } catch (error) {
       console.error(error);
@@ -110,18 +120,93 @@ const shareOnWhatsApp = (link) => {
   return (
     <div className="dashboard">
       <div className="dashboard-header">
+        <div className="dashboard-menu">
+     
+     <button onClick={() => navigate("/dashboard-home")}>
 
-    <div>
+    <FaHome size={28} />
 
-        <h1>
-            Hello, {user?.profile?.name || "User"} 👋
-        </h1>
+    <span>Home</span>
 
-        <p>
-            Welcome to ZORYVA ENERGY Dashboard
-        </p>
+</button>
+    <button onClick={() => navigate("/profile")}>
+    <FaUser size={28} />
+    <span>Profile</span>
+</button>
 
-    </div>
+   <button onClick={() => navigate("/direct-team")}>
+
+    <FaUsers size={28} />
+
+    <span>Direct Team</span>
+
+</button>
+
+    <button onClick={() => navigate("/left-team")}>
+
+    <FaArrowLeft size={28} />
+
+    <span>Left Team</span>
+
+</button>
+
+    <button onClick={() => navigate("/right-team")}>
+
+    <FaArrowRight size={28} />
+
+    <span>Right Team</span>
+
+</button>
+
+    <button onClick={() => navigate("/team-tree")}>
+
+    <FaSitemap size={28} />
+
+    <span>Team Tree</span>
+
+</button>
+
+    <button onClick={() => navigate("/today-joining")}>
+
+    <FaCalendarAlt size={28} />
+
+    <span>Today Joining</span>
+
+</button>
+
+    <button onClick={() => navigate("/wallet")}>
+
+    <FaWallet size={28} />
+
+    <span>Wallet</span>
+
+</button>
+
+    <button onClick={() => navigate("/rewards")}>
+
+    <FaTrophy size={28} />
+
+    <span>Rewards</span>
+
+</button>
+
+</div>
+          {/* Dashboard Menu End */}
+   <div className="dashboard-welcome">
+
+    <h1>
+    👋 Hello,
+    <br />
+    {user?.profile?.name || "User"}
+</h1>
+
+    <p>
+
+        Welcome to ZORYVA ENERGY Dashboard
+
+    </p>
+
+
 
     <button
         className="logout-btn"
@@ -129,7 +214,7 @@ const shareOnWhatsApp = (link) => {
     >
         🚪 Logout
     </button>
-
+</div>
 </div>
 
       <div className="dashboard-grid">
@@ -281,114 +366,9 @@ const shareOnWhatsApp = (link) => {
         </div>
             )}
 
-      <div style={{ marginTop: "40px" }}>
-
-        <UserBinaryTree
-          selectedUser={user}
-        />
-
-        <div className="direct-team-section">
-
-          <h2>👥 Direct Team ({directTeam.length})</h2>
-
-          {directTeam.length === 0 ? (
-
-            <p>No Direct Team Found</p>
-
-          ) : (
-
-            <div className="direct-team-grid">
-
-              {directTeam.map((member) => (
-
-                <div
-    key={member.profile.userId}
-    className="direct-team-card"
-    onClick={() => setSelectedDirectUser(member)}
->
-
-                  <h3>
-                    👤 {member.profile.name}
-                  </h3>
-
-                  <p>
-                    🆔 {member.profile.userId}
-                  </p>
-
-                  
-
-                  <p>
-                    📍 {member.binary?.position?.toUpperCase()}
-                  </p>
-
-                  <p>
-                    🟢 {member.profile.status}
-                  </p>
-
-                </div>
-                
-
-              ))}
-
-            </div>
-
-          )}
-
-        </div>
-
-      </div>
-{selectedDirectUser && (
-
-    <div className="member-details">
-      <button
-    className="close-btn"
-    onClick={() => setSelectedDirectUser(null)}
->
-    ❌ Close
-</button>
-
-        <h2>👤 Member Details</h2>
-
-        <p>
-
-            Name: {selectedDirectUser.profile.name}
-
-        </p>
-
-        <p>
-
-            User ID: {selectedDirectUser.profile.userId}
-
-        </p>
-
-        <p>
-
-            Mobile: {selectedDirectUser.profile.mobile}
-
-        </p>
-
-        <p>
-
-            Sponsor: {selectedDirectUser.profile.sponsorId}
-
-        </p>
-
-        <p>
-
-            Position: {selectedDirectUser.binary?.position?.toUpperCase()}
-
-        </p>
-
-        <p>
-
-            Status: {selectedDirectUser.profile.status}
-
-        </p>
-
+     
     </div>
-
-)}
-    </div>
+    
   );
 }
 

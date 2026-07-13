@@ -22,15 +22,62 @@ import FirebaseTest from "./components/FirebaseTest";
 import RegistrationSuccess from "./pages/RegistrationSuccess";
 import AdminLogin from "./admin/AdminLogin";
 import AdminSetup from "./admin/AdminSetup";
+import Profile from "./pages/Profile";
+import DirectTeam from "./pages/DirectTeam";
+import LeftTeam from "./pages/LeftTeam";
+import RightTeam from "./pages/RightTeam";
+import TeamTree from "./pages/TeamTree";
+import TodayJoining from "./pages/TodayJoining";
+import Wallet from "./pages/Wallet";
+import Rewards from "./pages/Rewards";
+import DashboardHome from "./pages/DashboardHome";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route
+    path="/dashboard-home"
+    element={<DashboardHome />}
+/>
         <Route path="/my-team" element={<MyTeam />} />
+        <Route
+    path="/direct-team"
+    element={<DirectTeam />}
+/>
+        <Route
+    path="/left-team"
+    element={<LeftTeam />}
+/>
+
+<Route
+    path="/right-team"
+    element={<RightTeam />}
+/>
+
+<Route
+    path="/team-tree"
+    element={<TeamTree />}
+/>
+
+<Route
+    path="/today-joining"
+    element={<TodayJoining />}
+/>
+
+<Route
+    path="/wallet"
+    element={<Wallet />}
+/>
+
+<Route
+    path="/rewards"
+    element={<Rewards />}
+/> 
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/profile" element={<Profile />} />
         <Route
   path="/registration-success"
   element={<RegistrationSuccess />}
