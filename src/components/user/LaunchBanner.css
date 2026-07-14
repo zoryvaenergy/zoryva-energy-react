@@ -1,0 +1,77 @@
+.launch-banner {
+  background: linear-gradient(
+    135deg,
+    #063970,
+    #0b6d38
+  );
+
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 20px;
+  margin: 50px auto;
+  max-width: 1200px;
+}
+
+.launch-banner h1 {
+  font-size: 42px;
+}
+
+.launch-quote {
+  font-size: 22px;
+  margin-top: 15px;
+  color: #ffd700;
+}
+
+.timer-box {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.timer-box div {
+  background: white;
+  color: #063970;
+  padding: 20px;
+  border-radius: 15px;
+  min-width: 120px;
+}
+
+.timer-box h2 {
+  font-size: 38px;
+}
+
+.launch-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.launch-buttons a {
+  text-decoration: none;
+}
+
+.launch-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffd700;
+  color: black;
+
+  padding: 15px 30px;
+
+  border-radius: 12px;
+
+  font-weight: 700;
+  font-size: 18px;
+
+  border: none;
+  cursor: pointer;
+
+  min-width: 180px;
+}

@@ -9,12 +9,15 @@ import Stats from "../components/Stats";
 import Testimonials from "../components/Testimonials";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
-
+import LaunchBanner from "../components/user/LaunchBanner";
+import FranchiseBanner from "../components/FranchiseBanner";
 function Home() {
   return (
     <>
       <Header />
       <Hero />
+      <LaunchBanner />
+      <FranchiseBanner />
       <About />
       <Products />
       <Opportunity />

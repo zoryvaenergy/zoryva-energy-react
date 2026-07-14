@@ -14,6 +14,7 @@ import TeamStructure from "./components/TeamStructure";
 import AdminLayout from "./layouts/AdminLayout";
 import "./css/admin.css";
 import BinaryTree from "./components/BinaryTree";
+import FranchiseApplications from "./pages/FranchiseApplications";
 function AdminDashboard() {
   const navigate = useNavigate();
       useEffect(() => {
@@ -45,6 +46,7 @@ function AdminDashboard() {
 
 <DebugPanel selectedUser={selectedUser} />
   <RepairPanel />
+  <FranchiseApplications />
   </AdminLayout>
  </AdminProvider>
 

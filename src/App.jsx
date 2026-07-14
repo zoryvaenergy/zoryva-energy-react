@@ -34,6 +34,8 @@ import DashboardHome from "./pages/DashboardHome";
 import "./styles/contact.css";
 import ComingSoon from "./pages/ComingSoon";
 import "./styles/comingSoon.css";
+import Franchise from "./pages/Franchise";
+import Contact from "./components/Contact";
 function App() {
   return (
     <BrowserRouter>
@@ -87,6 +89,14 @@ function App() {
 />
 
         <Route path="/" element={<Home />} />
+        <Route
+    path="/franchise"
+    element={<Franchise />}
+/>
+       <Route
+    path="/contact"
+    element={<Contact />}
+/>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
