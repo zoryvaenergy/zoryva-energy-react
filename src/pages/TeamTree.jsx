@@ -131,12 +131,11 @@ function TeamTree() {
         <div>
 
             <button
-                onClick={() =>
-                    navigate("/dashboard")
-                }
-            >
-                ⬅ Dashboard
-            </button>
+    className="dashboard-btn"
+    onClick={() => navigate("/dashboard")}
+>
+    ⬅ Dashboard
+</button>
 
             <h1>🌳 Team Tree</h1>
 

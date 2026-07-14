@@ -27,10 +27,11 @@ const [rightTeam, setRightTeam] = useState([]);
 return (
 
         <div>
-          <button onClick={() => navigate("/dashboard")}>
-
+          <button
+    className="dashboard-btn"
+    onClick={() => navigate("/dashboard")}
+>
     ⬅ Dashboard
-
 </button>
             <h1>➡ Right Team</h1>
             <div className="direct-team-section">

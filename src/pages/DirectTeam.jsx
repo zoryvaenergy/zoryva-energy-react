@@ -36,11 +36,12 @@ function DirectTeam() {
 
         <div>
 
-            <button onClick={() => navigate("/dashboard")}>
-
-                ⬅ Dashboard
-
-            </button>
+           <button
+    className="dashboard-btn"
+    onClick={() => navigate("/dashboard")}
+>
+    ⬅ Dashboard
+</button>
 
             <h1>👥 Direct Team</h1>
 

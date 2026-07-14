@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ref, get } from "firebase/database";
 import { db } from "../firebase/firebase";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
     FaUser,
     FaUsers,
@@ -19,6 +19,7 @@ import {
 import { FaHome } from "react-icons/fa";
 function Dashboard() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [user, setUser] = useState(null);
 
 
@@ -122,14 +123,29 @@ const shareOnWhatsApp = (link) => {
       <div className="dashboard-header">
         <div className="dashboard-menu">
      
-     <button onClick={() => navigate("/dashboard-home")}>
+     <button
+    className={
+        location.pathname === "/dashboard"
+            ? "menu-btn active-menu"
+            : "menu-btn"
+    }
+    onClick={() => navigate("/dashboard-home")}
+>
 
     <FaHome size={28} />
 
     <span>Home</span>
 
 </button>
-    <button onClick={() => navigate("/profile")}>
+
+    <button
+    className={
+        location.pathname === "/profile"
+            ? "menu-btn active-menu"
+            : "menu-btn"
+    }
+    onClick={() => navigate("/profile")}
+>
     <FaUser size={28} />
     <span>Profile</span>
 </button>

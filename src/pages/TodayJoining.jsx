@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getTodayJoining } from "../services/team/getTodayJoining";
 import { useNavigate } from "react-router-dom";
+import "./TodayJoining.css";
 function TodayJoining() {
 const navigate = useNavigate();
 const [todayUsers, setTodayUsers] = useState([]);
@@ -19,24 +20,34 @@ const [todayUsers, setTodayUsers] = useState([]);
 }, []);
     return (
 
-        <div>
-         <button onClick={() => navigate("/dashboard")}>
+        <div className="today-page">
 
+         <button
+    className="dashboard-btn"
+    onClick={() => navigate("/dashboard")}
+>
     ⬅ Dashboard
-
 </button>
-            <h1>📅 Today Joining</h1>
+
+            <h1 className="today-title">
+    📅 Today Joining
+</h1>
+            <p className="today-subtitle">
+    New members who register today will appear here.
+</p>
             <div className="direct-team-section">
 
-    <h2>
-
-        📅 Today Joining ({todayUsers.length})
-
-    </h2>
+    
 
     {todayUsers.length === 0 ? (
 
-        <p>No User Joined Today</p>
+        <div className="today-empty">
+
+    <h2>📅 Today Joining (0)</h2>
+
+    <p>No User Joined Today</p>
+
+</div>
 
     ) : (
 

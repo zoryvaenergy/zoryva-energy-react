@@ -1,7 +1,8 @@
 .dashboard {
     min-height: 100vh;
     background: #f5f7fb;
-    padding: 40px;
+    padding: 20px;
+      overflow-x: hidden;
 }
 
 .dashboard-header {
@@ -67,6 +68,7 @@
     transition: all 0.3s ease;
 
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 .card:hover {
@@ -100,18 +102,18 @@
 
 }
 
-.active {
+.active-menu {
+    background: #3b82f6 !important;
+    color: white !important;
+    border: 2px solid white;
+}
 
-    color: green;
+.active-menu svg {
+    color: white !important;
+}
 
-    font-size: 18px;
-
-    font-weight: 700;
-
-    line-height: 1.4;
-
-    word-break: break-word;
- white-space: normal;
+.active-menu span {
+    color: white !important;
 }
 
 .direct-team-section {
@@ -470,11 +472,49 @@ margin-right: 10px;
     background: #22c55e;
 
 }
+.menu-btn.active-menu {
+
+    background: #2563eb;
+
+    color: white;
+
+    transform: scale(1.05);
+
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+
+}
+.dashboard-btn {
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    margin-bottom: 30px;
+
+    transition: 0.3s;
+}
+
+.dashboard-btn:hover {
+
+    background: #1d4ed8;
+}
 @media (max-width: 768px) {
 
     .dashboard {
 
-        padding: 20px;
+        padding: 05px;
     }
 
     .dashboard-header {
@@ -539,12 +579,15 @@ margin-right: 10px;
     }
 
     .dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 0;
+    width: 100%;
+}
 
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 12px;
-    }
-
+.card {
+    min-width: 0;
+}
     .card p {
 
         font-size: 22px;

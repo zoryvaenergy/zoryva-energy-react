@@ -1,17 +1,23 @@
 function DashboardHome() {
+  return (
+    <div className="coming-soon-page">
 
-    return (
+      <h1>🏠 Dashboard Home</h1>
 
-        <div>
+      <h2>Welcome to ZORYVA ENERGY</h2>
 
-            <h1>🏠 Dashboard Home</h1>
+      <p>
+        Welcome to your member dashboard.
+      </p>
 
-            <p>Welcome to ZORYVA ENERGY</p>
-
-        </div>
-
-    );
-
+      <p>
+        Wallet and Rewards system are under development.
+      </p>
+<p>
+    More features will be available soon.
+</p>
+    </div>
+  );
 }
 
 export default DashboardHome;

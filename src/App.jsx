@@ -31,6 +31,9 @@ import TodayJoining from "./pages/TodayJoining";
 import Wallet from "./pages/Wallet";
 import Rewards from "./pages/Rewards";
 import DashboardHome from "./pages/DashboardHome";
+import "./styles/contact.css";
+import ComingSoon from "./pages/ComingSoon";
+import "./styles/comingSoon.css";
 function App() {
   return (
     <BrowserRouter>
@@ -66,13 +69,23 @@ function App() {
 
 <Route
     path="/wallet"
-    element={<Wallet />}
+    element={
+        <ComingSoon
+            title="Wallet"
+            message="Wallet system is under development."
+        />
+    }
 />
-
 <Route
     path="/rewards"
-    element={<Rewards />}
-/> 
+    element={
+        <ComingSoon
+            title="Rewards"
+            message="Rewards system is under development."
+        />
+    }
+/>
+
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
