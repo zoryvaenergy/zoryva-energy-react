@@ -1,0 +1,365 @@
+.about-company-page {
+
+    min-height: 100vh;
+
+    background: #f5f7fb;
+}
+
+.about-company-hero {
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    background: linear-gradient(
+        135deg,
+        #063970,
+        #0b6d38
+    );
+
+    color: white;
+}
+
+.about-company-hero h1 {
+
+    font-size: 52px;
+
+    margin-bottom: 20px;
+}
+
+.about-company-hero h2 {
+
+    color: #ffd700;
+
+    margin-bottom: 25px;
+}
+
+.about-company-hero p {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    font-size: 20px;
+
+    line-height: 1.8;
+}
+.company-intro {
+
+    background: white;
+
+    max-width: 1100px;
+
+    margin: 60px auto;
+
+    padding: 60px;
+
+    border-radius: 20px;
+}
+.energy-services {
+
+    max-width: 1200px;
+
+    margin: 60px auto;
+
+    text-align: center;
+
+    padding: 20px;
+}
+
+.energy-services h2 {
+
+    font-size: 40px;
+
+    color: #063970;
+
+    margin-bottom: 40px;
+}
+
+.service-cards {
+
+    display: flex;
+
+    gap: 25px;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+}
+
+.service-card {
+
+    background: white;
+
+    width: 320px;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 4px 15px rgba(
+        0,
+        0,
+        0,
+        0.1
+    );
+}
+
+.service-card h3 {
+
+    color: #0b6d38;
+
+    margin-bottom: 15px;
+}
+
+.service-card p {
+
+    color: #555;
+
+    line-height: 1.7;
+}
+.vision-mission {
+
+    max-width: 1200px;
+
+    margin: 70px auto;
+
+    display: flex;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.vision-card,
+.mission-card {
+
+    flex: 1;
+
+    min-width: 320px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 4px 15px rgba(
+        0,
+        0,
+        0,
+        0.1
+    );
+}
+
+.vision-card h2,
+.mission-card h2 {
+
+    color: #063970;
+
+    margin-bottom: 20px;
+}
+
+.vision-card p,
+.mission-card p {
+
+    line-height: 1.8;
+
+    color: #555;
+}
+.core-values {
+
+    max-width: 1200px;
+
+    margin: 80px auto;
+
+    text-align: center;
+
+    padding: 20px;
+}
+
+.core-values h2 {
+
+    font-size: 40px;
+
+    color: #063970;
+
+    margin-bottom: 40px;
+}
+
+.values-grid {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 25px;
+}
+
+.value-card {
+
+    background: white;
+
+    width: 260px;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 4px 15px rgba(
+        0,
+        0,
+        0,
+        0.1
+    );
+}
+
+.value-card h3 {
+
+    color: #0b6d38;
+
+    margin-bottom: 15px;
+}
+
+.value-card p {
+
+    color: #555;
+
+    line-height: 1.7;
+}
+.roadmap {
+
+    max-width: 1200px;
+
+    margin: 80px auto;
+
+    text-align: center;
+
+    padding: 20px;
+}
+
+.roadmap h2 {
+
+    font-size: 40px;
+
+    color: #063970;
+
+    margin-bottom: 50px;
+}
+
+.roadmap-container {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 25px;
+}
+
+.roadmap-card {
+
+    width: 200px;
+
+    background: linear-gradient(
+        135deg,
+        #063970,
+        #0b6d38
+    );
+
+    color: white;
+
+    padding: 30px 20px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 18px rgba(
+        0,
+        0,
+        0,
+        0.15
+    );
+}
+
+.roadmap-card h3 {
+
+    font-size: 32px;
+
+    color: #ffd700;
+
+    margin-bottom: 15px;
+}
+
+.roadmap-card p {
+
+    line-height: 1.7;
+}
+.company-contact {
+
+    max-width: 1200px;
+
+    margin: 80px auto;
+
+    padding: 20px;
+
+    text-align: center;
+}
+
+.company-contact h2 {
+
+    font-size: 40px;
+
+    color: #063970;
+
+    margin-bottom: 40px;
+}
+
+.contact-grid {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 25px;
+}
+
+.contact-card {
+
+    width: 250px;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 5px 15px rgba(
+        0,
+        0,
+        0,
+        0.1
+    );
+}
+
+.contact-card h3 {
+
+    color: #0b6d38;
+
+    margin-bottom: 15px;
+}
+
+.contact-card p {
+
+    color: #555;
+
+    line-height: 1.7;
+}

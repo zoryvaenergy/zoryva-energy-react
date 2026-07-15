@@ -53,9 +53,9 @@ function Header() {
   <FaHome /> Home
 </Link>
 
-      <a href="#about" onClick={closeMenu}>
-  <FaInfoCircle /> About
-</a>    
+        <a href="/about-company">
+    About
+</a>
 
           <a href="#products" onClick={closeMenu}>
   <FaBoxOpen /> Products

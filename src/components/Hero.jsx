@@ -1,5 +1,5 @@
 import heroImage from "../images/hero.png";
-
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
@@ -49,12 +49,14 @@ function Hero() {
             🤝 Become a Partner
           </a>
 
-          <a
-            href="#products"
-            className="explore-btn"
-          >
-            ☀️ Explore Products
-          </a>
+         <Link
+    to="/products-details"
+    className="about-btn"
+>
+
+    Explore Products →
+
+</Link>
 
         </div>
 

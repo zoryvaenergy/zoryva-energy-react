@@ -1,5 +1,5 @@
 import aboutImage from "../images/about.jpg";
-
+import { Link } from "react-router-dom";
 function About() {
 
   return (
@@ -64,11 +64,14 @@ business opportunities across India.
 
 </ul>
 
-<a href="#products" className="about-btn">
+<Link
+    to="/products-details"
+    className="about-btn"
+>
 
-Explore Products →
+    Explore Products →
 
-</a>
+</Link>
 
 </div>
 

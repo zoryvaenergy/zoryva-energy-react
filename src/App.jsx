@@ -36,6 +36,9 @@ import ComingSoon from "./pages/ComingSoon";
 import "./styles/comingSoon.css";
 import Franchise from "./pages/Franchise";
 import Contact from "./components/Contact";
+import AboutCompany from "./pages/AboutCompany";
+import ProductsDetails from "./pages/ProductsDetails";
+import SolarDetails from "./pages/SolarDetails";
 function App() {
   return (
     <BrowserRouter>
@@ -92,6 +95,18 @@ function App() {
         <Route
     path="/franchise"
     element={<Franchise />}
+/>
+     <Route
+    path="/about-company"
+    element={<AboutCompany />}
+/>
+     <Route
+    path="/products-details"
+    element={<ProductsDetails />}
+/>
+     <Route
+    path="/products/solar"
+    element={<SolarDetails />}
 />
        <Route
     path="/contact"
