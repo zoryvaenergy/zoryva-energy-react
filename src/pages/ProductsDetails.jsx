@@ -62,9 +62,7 @@ function ProductsDetails() {
     to="/products/solar"
     className="details-btn"
 >
-
     View Details
-
 </Link>
 
 </div>
@@ -89,11 +87,14 @@ function ProductsDetails() {
 
     <span>Coming Soon</span>
 
-     <button className="details-btn">
+     <Link
+    to="/products/wind"
+    className="details-btn"
+>
 
     View Details
 
-</button>
+</Link>
 
 
 </div>
@@ -116,11 +117,14 @@ function ProductsDetails() {
 
     <span>Coming Soon</span>
 
- <button className="details-btn">
+     <Link
+    to="/products/ro"
+    className="details-btn"
+>
 
     View Details
 
-</button>
+</Link>
 
 </div>
 

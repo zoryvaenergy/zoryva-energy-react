@@ -1,7 +1,6 @@
+import "../styles/windDetails.css";
 
-import "../styles/solarDetails.css";
-import { FaSolarPanel } from "react-icons/fa";
-function SolarDetails() {
+function WindDetails() {
 
     return (
 
@@ -9,11 +8,11 @@ function SolarDetails() {
 
             <div className="solar-header">
 
-                <h1>☀️ Solar Products</h1>
+                <h1>🌬️ Wind Energy Products</h1>
 
                 <p>
 
-                    Explore our upcoming solar
+                    Explore our upcoming wind energy
                     product range.
 
                 </p>
@@ -22,41 +21,40 @@ function SolarDetails() {
 
             <div className="solar-products-list">
 
-               <div className="solar-item">
-
-    <FaSolarPanel />
-
-    <span>Solar Panels</span>
-
-</div>
-
                 <div className="solar-item">
 
-                    Solar Inverters
+                    Small Wind Turbines
 
                 </div>
 
                 <div className="solar-item">
 
-                    Solar Batteries
+                     Hybrid Wind Systems
+
 
                 </div>
 
                 <div className="solar-item">
 
-                    Solar Street Lights
+                    Wind Controllers
 
                 </div>
 
                 <div className="solar-item">
 
-                    Solar Water Pumps
+                    Wind Power Generators
 
                 </div>
 
                 <div className="solar-item">
 
-                    Solar Lanterns
+                     Wind Installation Kits
+
+                </div>
+
+                <div className="solar-item">
+
+                    Energy Storage Systems
 
                 </div>
 
@@ -69,7 +67,7 @@ function SolarDetails() {
 
     <p>
 
-        Our complete solar product range
+        Our complete wind energy product range
         will be launched soon.
 
     </p>
@@ -81,4 +79,4 @@ function SolarDetails() {
 
 }
 
-export default SolarDetails;
+export default WindDetails;

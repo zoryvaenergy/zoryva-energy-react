@@ -39,6 +39,8 @@ import Contact from "./components/Contact";
 import AboutCompany from "./pages/AboutCompany";
 import ProductsDetails from "./pages/ProductsDetails";
 import SolarDetails from "./pages/SolarDetails";
+import WindDetails from "./pages/WindDetails";
+import RODetails from "./pages/RODetails";
 function App() {
   return (
     <BrowserRouter>
@@ -107,6 +109,14 @@ function App() {
      <Route
     path="/products/solar"
     element={<SolarDetails />}
+/>
+      <Route
+    path="/products/wind"
+    element={<WindDetails />}
+ />
+      <Route
+    path="/products/ro"
+    element={<RODetails />}
 />
        <Route
     path="/contact"

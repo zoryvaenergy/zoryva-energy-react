@@ -1,7 +1,6 @@
+import "../styles/roDetails.css";
 
-import "../styles/solarDetails.css";
-import { FaSolarPanel } from "react-icons/fa";
-function SolarDetails() {
+function RODetails() {
 
     return (
 
@@ -9,54 +8,53 @@ function SolarDetails() {
 
             <div className="solar-header">
 
-                <h1>☀️ Solar Products</h1>
+                <h1>💧 RO Products</h1>
 
-                <p>
+<p>
 
-                    Explore our upcoming solar
-                    product range.
+    Explore our upcoming water
+    purification product range.
 
-                </p>
+</p>
 
             </div>
 
             <div className="solar-products-list">
 
-               <div className="solar-item">
-
-    <FaSolarPanel />
-
-    <span>Solar Panels</span>
-
-</div>
-
                 <div className="solar-item">
 
-                    Solar Inverters
+                      Domestic RO Systems
 
                 </div>
 
                 <div className="solar-item">
 
-                    Solar Batteries
+                     Commercial RO Plants
+
 
                 </div>
 
                 <div className="solar-item">
 
-                    Solar Street Lights
+                     Industrial RO Systems
 
                 </div>
 
                 <div className="solar-item">
 
-                    Solar Water Pumps
+                    Water Purifiers
 
                 </div>
 
                 <div className="solar-item">
 
-                    Solar Lanterns
+                      Water Softeners
+
+                </div>
+
+                <div className="solar-item">
+
+                    Filtration Systems
 
                 </div>
 
@@ -69,7 +67,8 @@ function SolarDetails() {
 
     <p>
 
-        Our complete solar product range
+        Our complete water
+            purification  product range
         will be launched soon.
 
     </p>
@@ -81,4 +80,4 @@ function SolarDetails() {
 
 }
 
-export default SolarDetails;
+export default RODetails;
