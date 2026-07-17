@@ -602,3 +602,48 @@ margin-right: 10px;
     font-size: 18px;
 }
 }
+.team-page {
+
+    padding: 40px;
+
+}
+
+.team-page h1 {
+
+    color: #0a3d7c;
+
+    margin-bottom: 30px;
+
+}
+
+.team-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(220px, 1fr)
+    );
+
+    gap: 20px;
+
+}
+
+.team-card {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 4px 12px rgba(
+        0,
+        0,
+        0,
+        0.1
+    );
+
+    text-align: center;
+
+}

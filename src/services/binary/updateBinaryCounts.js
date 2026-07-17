@@ -54,7 +54,10 @@ export async function updateBinaryCounts(userId) {
             "Updating Count For Parent:",
             parentId
         );
-
+          console.log(
+    "NEXT PARENT:",
+    currentChildId
+);
         if (!parentId) {
 
             console.timeEnd(

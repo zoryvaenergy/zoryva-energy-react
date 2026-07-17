@@ -18,10 +18,31 @@ import {
 } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 function Dashboard() {
+  
   const navigate = useNavigate();
   const location = useLocation();
   const [user, setUser] = useState(null);
+const totalLevelTeam =
 
+    (user?.levels?.level1 ?? 0) +
+
+    (user?.levels?.level2 ?? 0) +
+
+    (user?.levels?.level3 ?? 0) +
+
+    (user?.levels?.level4 ?? 0) +
+
+    (user?.levels?.level5 ?? 0) +
+
+    (user?.levels?.level6 ?? 0) +
+
+    (user?.levels?.level7 ?? 0) +
+
+    (user?.levels?.level8 ?? 0) +
+
+    (user?.levels?.level9 ?? 0) +
+
+    (user?.levels?.level10 ?? 0);
 
  
  
@@ -291,6 +312,16 @@ const shareOnWhatsApp = (link) => {
           <h3>Rewards</h3>
           <p>{user?.rewards?.totalRewards ?? 0}</p>
         </div>
+        <div
+    className="card"
+    onClick={() => navigate("/level-team")}
+>
+
+    <h3>Level Team</h3>
+
+    <p>{totalLevelTeam}</p>
+
+</div>
 
       </div>
 

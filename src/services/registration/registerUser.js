@@ -9,7 +9,7 @@ import { verifySponsor } from "./verifySponsor";
 import { generateUserId } from "./generateUserId";
 import { placeUser } from "../binary/placeUser";
 import { updateBinaryCounts } from "../binary/updateBinaryCounts";
-
+import { updateLevels } from "../updateLevels";
 export async function registerUser(formData) {
 
     console.log("Registration Engine Started");
@@ -85,12 +85,49 @@ console.timeEnd("Duplicate Check");
             totalTeam: 0,
             activeTeam: 0,
         },
+          levels: {
 
-        matrix: {
-            parentId: "",
-            position: "",
-            level: 0,
-        },
+    level1: 0,
+
+    level2: 0,
+
+    level3: 0,
+
+    level4: 0,
+
+    level5: 0,
+
+    level6: 0,
+
+    level7: 0,
+
+    level8: 0,
+
+    level9: 0,
+
+    level10: 0,
+
+},
+      matrix: {
+
+    parentId: "",
+
+    position: 0,
+
+    level: 0,
+
+    totalTeam: 0,
+
+    currentStep: 1,
+
+    completedSteps: 0,
+
+    maxLevel: 10,
+
+    isCompleted: false,
+    childrenCount: 0,
+},
+      
 
        binary: {
     parentId: "",
@@ -175,7 +212,9 @@ console.timeEnd("Place User");
 console.log(
     "Workers Started"
 );
-
+await updateLevels(
+    sponsorCheck.sponsor.userId
+);
        
 
     }

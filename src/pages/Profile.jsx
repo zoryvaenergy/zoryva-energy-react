@@ -73,9 +73,11 @@ function Profile() {
         ⬅ Dashboard
     </button>
 
-    <button>
-        ✏️ Edit Profile
-    </button>
+    <button
+    onClick={() => navigate("/edit-profile")}
+>
+    ✏️ Edit Profile
+</button>
 
 </div>
                 <div className="profile-row">

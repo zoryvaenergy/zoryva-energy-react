@@ -41,6 +41,8 @@ import ProductsDetails from "./pages/ProductsDetails";
 import SolarDetails from "./pages/SolarDetails";
 import WindDetails from "./pages/WindDetails";
 import RODetails from "./pages/RODetails";
+import EditProfile from "./components/EditProfile";
+import LevelTeam from "./pages/LevelTeam";
 function App() {
   return (
     <BrowserRouter>
@@ -64,6 +66,13 @@ function App() {
     element={<RightTeam />}
 />
 
+<Route
+
+    path="/level-team"
+
+    element={<LevelTeam />}
+
+/>
 <Route
     path="/team-tree"
     element={<TeamTree />}
@@ -92,7 +101,10 @@ function App() {
         />
     }
 />
-
+<Route
+    path="/edit-profile"
+    element={<EditProfile />}
+/>
         <Route path="/" element={<Home />} />
         <Route
     path="/franchise"
@@ -122,6 +134,7 @@ function App() {
     path="/contact"
     element={<Contact />}
 />
+
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
