@@ -43,6 +43,7 @@ import WindDetails from "./pages/WindDetails";
 import RODetails from "./pages/RODetails";
 import EditProfile from "./components/EditProfile";
 import LevelTeam from "./pages/LevelTeam";
+
 function App() {
   return (
     <BrowserRouter>

@@ -62,8 +62,8 @@ console.timeEnd("Duplicate Check");
         },
 
         auth: {
-            password: formData.password,
-        },
+    password: String(formData.password),
+},
 
         wallet: {
             balance: 0,

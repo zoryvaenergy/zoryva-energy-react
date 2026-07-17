@@ -24,7 +24,7 @@ function StressTest() {
     setLoading(true);
 
     console.time("STRESS TEST");
-       const promises = [];
+
     for (let i = 1; i <= totalUsers; i++) {
 
         const mobile = `9${String(
@@ -53,12 +53,9 @@ function StressTest() {
             `Creating User ${i}`
         );
 
-        promises.push(
-    registerUser(userData)
-);
+        await registerUser(userData);
 
     }
-    await Promise.all(promises);
 
     console.timeEnd("STRESS TEST");
 
