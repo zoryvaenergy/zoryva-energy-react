@@ -43,7 +43,7 @@ import WindDetails from "./pages/WindDetails";
 import RODetails from "./pages/RODetails";
 import EditProfile from "./components/EditProfile";
 import LevelTeam from "./pages/LevelTeam";
-
+import MatrixTree from "./admin/MatrixTree";
 function App() {
   return (
     <BrowserRouter>
@@ -78,7 +78,10 @@ function App() {
     path="/team-tree"
     element={<TeamTree />}
 />
-
+<Route
+    path="/matrix-tree"
+    element={<MatrixTree />}
+/>
 <Route
     path="/today-joining"
     element={<TodayJoining />}

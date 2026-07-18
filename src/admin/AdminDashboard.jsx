@@ -1,3 +1,5 @@
+import LevelMatrixPanel
+from "./components/LevelMatrixPanel";
 import RepairPanel from "./components/RepairPanel";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -39,13 +41,19 @@ function AdminDashboard() {
 <UserSearch setSelectedUser={setSelectedUser} />
 
 <UserDetails selectedUser={selectedUser} />
-
+<LevelMatrixPanel
+    selectedUser={
+        selectedUser
+    }
+/>
 <TeamStructure selectedUser={selectedUser} />
 
 <BinaryTree selectedUser={selectedUser} />
 
 <DebugPanel selectedUser={selectedUser} />
-  <RepairPanel />
+  <RepairPanel
+    selectedUser={selectedUser}
+/>
   <FranchiseApplications />
   </AdminLayout>
  </AdminProvider>

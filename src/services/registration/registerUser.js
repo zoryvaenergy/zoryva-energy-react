@@ -10,6 +10,13 @@ import { generateUserId } from "./generateUserId";
 import { placeUser } from "../binary/placeUser";
 import { updateBinaryCounts } from "../binary/updateBinaryCounts";
 import { updateLevels } from "../updateLevels";
+import { placeMatrixUser } from "../matrix/placeMatrixUser";
+import {
+    updateMatrixTotalCounts,
+} from "../matrix/updateMatrixTotalCounts";
+import {
+    updateMatrixCounts,
+} from "../matrix/updateMatrixCounts";
 export async function registerUser(formData) {
 
     console.log("Registration Engine Started");
@@ -179,14 +186,19 @@ while (!placed && attempts < 10) {
         sponsorCheck.sponsor.userId,
         formData.side
     );
-
+     await placeMatrixUser(userId);
     console.log(
         "Placement Attempt:",
         attempts,
         "Result:",
         placed
     );
-
+await updateMatrixTotalCounts(
+    userId
+);
+await updateMatrixCounts(
+    "ZEN000001"
+);
 }
 
 console.timeEnd("Place User");

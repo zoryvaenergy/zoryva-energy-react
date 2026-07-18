@@ -9,7 +9,12 @@ import { scanTeamCounts } from "../services/scanTeamCounts";
 import { scanDirectTeam } from "../services/scanDirectTeam";
 import { scanBinaryCounts } from "../services/scanBinaryCounts";
 import { saveRepairHistory } from "../services/repairHistoryService";
-function RepairPanel() {
+import {
+    repairLevels,
+} from "../services/repairLevels";
+function RepairPanel({
+    selectedUser,
+}) {
 
   const [loading, setLoading] = useState(false);
 
@@ -144,7 +149,8 @@ async function handleBinaryScan() {
 
         setMessage("");
 
-    } catch (error) {
+    }
+     catch (error) {
 
         console.error(error);
 
@@ -153,6 +159,62 @@ async function handleBinaryScan() {
     } finally {
 
         setLoading(false);
+
+    }
+
+}
+   async function handleLevelsScan() {
+
+    try {
+
+        setLoading(true);
+
+        setMessage(
+            "Repairing Levels..."
+        );
+
+        if (!selectedUser) {
+
+            setMessage(
+                "❌ Please select a user"
+            );
+
+            return;
+        }
+
+        await repairLevels(
+
+            selectedUser.profile.userId
+
+        );
+
+        setMessage(
+
+            "✅ Levels Repaired"
+
+        );
+
+    } catch (error) {
+
+        console.error(
+
+            error
+
+        );
+
+        setMessage(
+
+            "❌ Repair Failed"
+
+        );
+
+    } finally {
+
+        setLoading(
+
+            false
+
+        );
 
     }
 
@@ -368,6 +430,26 @@ await saveRepairHistory({
     {loading
         ? "Repairing..."
         : "Repair Binary Counts"}
+
+</button>
+     <button
+    onClick={handleLevelsScan}
+    disabled={loading}
+    style={{
+        padding: "12px 20px",
+        background: "#fd7e14",
+        color: "#fff",
+        border: "none",
+        borderRadius: "8px",
+        cursor: "pointer",
+        marginTop: "10px",
+        marginLeft: "10px"
+    }}
+>
+
+    {loading
+        ? "Repairing..."
+        : "Repair Levels"}
 
 </button>
       <p

@@ -1,43 +1,154 @@
-import { useEffect, useState } from "react";
-import { verifyUser } from "../services/debugService";
-import { calculateActualLeftCount } from "../services/teamDebugService";
-function DebugPanel({ selectedUser }) {
+import {
+    verifyMatrix,
+} from "../services/verifyMatrix";
 
-  const [result, setResult] = useState({
-    pass: false,
-    checks: [],
-  });
+import {
+    verifyLevels,
+} from "../services/verifyLevels";
 
-  useEffect(() => {
+import {
+    useEffect,
+    useState,
+} from "react";
 
-  async function loadDebug() {
+import {
+    verifyUser,
+} from "../services/debugService";
 
-    const debugResult = await verifyUser(selectedUser);
+function DebugPanel({
+    selectedUser,
+}) {
 
-    console.log("Debug Result :", debugResult);
+    const [result, setResult] = useState({
 
-    setResult(debugResult);
+        pass: false,
 
-  }
+        checks: [],
+    });
 
-  loadDebug();
+    const levelResult =
+        verifyLevels(
+            selectedUser
+        );
 
-}, [selectedUser]);
+    const matrixResult =
+        verifyMatrix(
+            selectedUser
+        );
 
-  return (
-    <div>
-      <h3>System Debug</h3>
+    useEffect(() => {
 
-      {result.checks.map((item, index) => (
-        <p key={index}>{item}</p>
-      ))}
+        async function loadDebug() {
 
-      {result.checks.length > 0 && (
-        <h2>{result.pass ? "PASS ✅" : "FAIL ❌"}</h2>
-      )}
+            const debugResult =
+                await verifyUser(
+                    selectedUser
+                );
 
-    </div>
-  );
+            console.log(
+                "Debug Result :",
+                debugResult
+            );
+
+            setResult(
+                debugResult
+            );
+        }
+
+        loadDebug();
+
+    }, [selectedUser]);
+
+    return (
+
+        <div>
+
+            <h3>
+                System Debug
+            </h3>
+
+            {result.checks.map(
+                (
+                    item,
+                    index
+                ) => (
+
+                    <p key={index}>
+
+                        {item}
+
+                    </p>
+
+                )
+            )}
+
+            <h3>
+                Level Verification
+            </h3>
+
+            {levelResult.checks.map(
+
+                (
+                    item,
+                    index
+                ) => (
+
+                    <p key={index}>
+
+                        {item.pass
+                            ? "✅"
+                            : "❌"}
+
+                        {" "}
+
+                        {item.name}
+
+                    </p>
+
+                )
+            )}
+
+            <h3>
+                Matrix Verification
+            </h3>
+
+            {matrixResult.checks.map(
+
+                (
+                    item,
+                    index
+                ) => (
+
+                    <p key={index}>
+
+                        {item.pass
+                            ? "✅"
+                            : "❌"}
+
+                        {" "}
+
+                        {item.name}
+
+                    </p>
+
+                )
+            )}
+
+            {result.checks.length > 0 && (
+
+                <h2>
+
+                    {result.pass
+                        ? "PASS ✅"
+                        : "FAIL ❌"}
+
+                </h2>
+
+            )}
+
+        </div>
+
+    );
 }
 
 export default DebugPanel;
