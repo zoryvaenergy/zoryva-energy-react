@@ -17,6 +17,7 @@ import AdminLayout from "./layouts/AdminLayout";
 import "./css/admin.css";
 import BinaryTree from "./components/BinaryTree";
 import FranchiseApplications from "./pages/FranchiseApplications";
+import MatrixTree from "./components/MatrixTree";
 function AdminDashboard() {
   const navigate = useNavigate();
       useEffect(() => {
@@ -49,7 +50,7 @@ function AdminDashboard() {
 <TeamStructure selectedUser={selectedUser} />
 
 <BinaryTree selectedUser={selectedUser} />
-
+<MatrixTree selectedUser={selectedUser} />
 <DebugPanel selectedUser={selectedUser} />
   <RepairPanel
     selectedUser={selectedUser}

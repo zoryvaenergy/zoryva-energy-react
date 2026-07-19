@@ -9,6 +9,7 @@ import { scanTeamCounts } from "../services/scanTeamCounts";
 import { scanDirectTeam } from "../services/scanDirectTeam";
 import { scanBinaryCounts } from "../services/scanBinaryCounts";
 import { saveRepairHistory } from "../services/repairHistoryService";
+import { repairMatrix } from "../services/repairMatrix";
 import {
     repairLevels,
 } from "../services/repairLevels";
@@ -215,6 +216,54 @@ async function handleBinaryScan() {
             false
 
         );
+
+    }
+
+}
+      async function handleMatrixRepair() {
+
+    try {
+
+        setLoading(true);
+
+        setMessage(
+            "Repairing Matrix..."
+        );
+
+        if (!selectedUser) {
+
+            setMessage(
+                "❌ Please select a user"
+            );
+
+            return;
+        }
+
+        await repairMatrix(
+
+            selectedUser.profile.userId
+
+        );
+
+        setMessage(
+
+            "✅ Matrix Repaired"
+
+        );
+
+    } catch (error) {
+
+        console.error(error);
+
+        setMessage(
+
+            "❌ Matrix Repair Failed"
+
+        );
+
+    } finally {
+
+        setLoading(false);
 
     }
 
@@ -450,6 +499,45 @@ await saveRepairHistory({
     {loading
         ? "Repairing..."
         : "Repair Levels"}
+
+</button>
+       <button
+
+    onClick={handleMatrixRepair}
+
+    disabled={loading}
+
+    style={{
+
+        padding: "12px 20px",
+
+        background: "#6f42c1",
+
+        color: "#fff",
+
+        border: "none",
+
+        borderRadius: "8px",
+
+        cursor: "pointer",
+
+        marginTop: "10px",
+
+        marginLeft: "10px"
+
+    }}
+
+>
+
+    {
+
+        loading
+
+            ? "Repairing..."
+
+            : "Repair Matrix"
+
+    }
 
 </button>
       <p
