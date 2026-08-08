@@ -12,18 +12,11 @@ function Contact() {
 
         <h3>📱 Mobile Number</h3>
 
-        <p>+91 8302715856</p>
+        <p></p>
 
         <h3>💬 WhatsApp Support</h3>
 
-<a
-  className="whatsapp-btn"
-  href="https://wa.me/918302715856"
-  target="_blank"
-  rel="noreferrer"
->
-  Chat on WhatsApp
-</a>
+
 
 <h3>🌐 Website</h3>
 
